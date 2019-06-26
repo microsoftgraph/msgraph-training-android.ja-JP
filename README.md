@@ -1,10 +1,10 @@
-# <a name="microsoft-graph-training-module---build-android-native-apps-with-the-microsoft-graph-java-sdk"></a>microsoft graph トレーニングモジュール-microsoft graph Java SDK を使用して Android ネイティブアプリをビルドする
+# <a name="microsoft-graph-training-module---build-android-native-apps-with-the-microsoft-graph-java-sdk"></a>Microsoft Graph トレーニングモジュール-Microsoft Graph Java SDK を使用して Android ネイティブアプリをビルドする
 
 このモジュールでは、Microsoft Graph SDK を使用して、ネイティブモバイル Android アプリケーションを構築することにより、Office 365 のデータにアクセスする方法について説明します。
 
 ## <a name="lab---build-android-native-apps-with-the-microsoft-graph-java-sdk"></a>ラボ-Microsoft Graph Java SDK を使用して Android ネイティブアプリをビルドする
 
-このラボでは、Azure AD v2 認証エンドポイントと microsoft authentication Library (msal) を使用して、microsoft Graph を使用して Office 365 のデータにアクセスする Android アプリケーションを作成します。
+このラボでは、Azure AD v2 認証エンドポイントと Microsoft Authentication Library (MSAL) を使用して、Microsoft Graph を使用して Office 365 のデータにアクセスする Android アプリケーションを作成します。
 
 - [Android の Microsoft Graph のチュートリアル](https://docs.microsoft.com/graph/tutorials/android)
 
@@ -24,25 +24,27 @@
 
 ## <a name="watch-the-module"></a>モジュールを見る
 
-このモジュールは、「 [Microsoft Graph Java SDK を使用して Android ネイティブアプリを構築](https://youtu.be/Yk0FMwXanck)する」の「Office 開発 YouTube channel」に記録されています。
+このモジュールは、「 [Microsoft Graph JAVA SDK を使用して Android ネイティブアプリを構築](https://youtu.be/BLmOmv4FSsQ)する」の「Office 開発 YouTube channel」に記録されています。
 
 ## <a name="contributors"></a>多様
 
 | ロール                | 作成者 (s)                                               |
 | -------------------- | ------------------------------------------------------- |
-| ラボのマニュアル/スライド | Andrew Connell (Microsoft MVP、voitanos) @andrewconnell |
+| ラボのマニュアル/スライド | Andrew Connell (Microsoft MVP、Voitanos) @andrewconnell |
 | Graph Java SDK コード  | vikyding (Microsoft) @vikyding                          |
-| スポンサー/サポート    | yina (Microsoft) @yinaa                          |
+| スポンサー/サポート    | Yina (Microsoft) @yinaa                          |
 
 ## <a name="version-history"></a>バージョン履歴
 
 | バージョン | 日付               | コメント                                                                   |
 | ------- | ------------------ | -------------------------------------------------------------------------- |
-| 1.6     | 2019 年 2 月 20 日  | docs.microsoft.com 形式に更新されました      |
+| 1.8     | 2019年6月18日      | 更新された readme を screencast レコーディングに更新しました                           |
+| 1.7     | 2019年3月30日     | FY2019Q4 コンテンツの更新                                                   |
+| 1.6     | 2019 年 2 月 20 日  | Docs.microsoft.com 形式に更新されました                                       |
 | 1.5     | 2019 年 2 月 12 日  | 複数の依存関係が更新され、四半期ごとに更新される                    |
-| 1.4     | 2018年11月8日   | グラフ Java SDK から GA v1 & の更新された四半期ごとの更新                |
-| 1.3     | 2018 年 9 月 12 日 | graph Andriod sdk を graph Java sdk & に置き換えました。四半期ごとに更新された更新 |
-| 1.2     | 2018年6月28日      | screencast を追加しました。                                                          |
+| 1.4     | 2018年11月8日   | グラフ Java SDK を GA v1 & 適用された四半期ごとの更新                |
+| 1.3     | 2018 年 9 月 12 日 | グラフ Java SDK & 適用された四半期ごとの更新による Graph Android SDK の置き換え |
+| 1.2     | 2018年6月28日      | Screencast を追加しました。                                                          |
 | 1.1     | 2018年6月22日      | 最新のガイダンスを使用するように書き直しました。                                          |
 | 1.0     | ~ 2017 年11月24日 | Microsoft Graph 関連製品 breakouts を追加します。                             |
 
