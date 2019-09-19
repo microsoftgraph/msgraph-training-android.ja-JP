@@ -36,6 +36,12 @@ Microsoft アカウントを持っていない場合は、無料のアカウン�
 
     ![リダイレクト Uri ページのスクリーンショット](../../tutorial/images/aad-redirect-uris.png)
 
+## <a name="configure-the-sample"></a>サンプルを構成する
+
+1. ファイルの`oauth_strings.xml.example`名前を`oauth_strings.xml`に変更して、ファイル`GraphTutorial/app/src/main/res/values`をディレクトリに移動します。
+1. `oauth_strings.xml`ファイルを編集し、次のように変更します。
+    1. を`YOUR_APP_ID_HERE` Azure ポータルから取得した**アプリケーション Id**に置き換えます。
+
 ## <a name="run-the-sample"></a>サンプルを実行する
 
 Android Studio で、[**実行**] メニューの [ **' アプリの実行**] を選択します。
