@@ -2,25 +2,38 @@
 
 この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。 これは、Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。 これを行うには、 [Android 用 Microsoft 認証ライブラリ (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android)をアプリケーションに統合します。
 
-1. **App/res/values**フォルダーを右クリックし、[**新規作成**]、[値] [**リソースファイル**] の順に選択します。
+1. **Res**フォルダーを右クリックし、[**新規作成**]、[ **Android リソースディレクトリ**] の順に選択します。
 
-1. ファイル`oauth_strings`の名前を指定して、[ **OK]** を選択します。
+1. リソースの**種類**をに`raw`変更し、[ **OK]** を選択します。
 
-1. `resources`要素に次の値を追加します。
+1. 新しい**raw**フォルダーを右クリックし、[**新規**]、[**ファイル**] の順に選択します。
 
-    ```xml
-    <string name="oauth_app_id">YOUR_APP_ID_HERE</string>
-    <string name="oauth_redirect_uri">msalYOUR_APP_ID_HERE</string>
-    <string-array name="oauth_scopes">
-        <item>User.Read</item>
-        <item>Calendars.Read</item>
-    </string-array>
+1. ファイル`msal_config.json`の名前を指定して、[ **OK]** を選択します。
+
+1. 次のものを**msal_config json**ファイルに追加します。
+
+    ```json
+    {
+      "client_id" : "YOUR_APP_ID_HERE",
+      "redirect_uri" : "msauth://YOUR_PACKAGE_NAME_HERE/callback",
+      "broker_redirect_uri_registered": false,
+      "account_mode": "SINGLE",
+      "authorities" : [
+        {
+          "type": "AAD",
+          "audience": {
+            "type": "AzureADandPersonalMicrosoftAccount"
+          },
+          "default": true
+        }
+      ]
+    }
     ```
 
-    を`YOUR_APP_ID_HERE`アプリ登録のアプリ ID に置き換えます。
+    を`YOUR_APP_ID_HERE`アプリ登録のアプリ ID で置き換えて、プロジェクトの`YOUR_PACKAGE_NAME_HERE`パッケージ名に置き換えます。
 
 > [!IMPORTANT]
-> Git などのソース管理を使用している場合は、この時点で、ソース管理`oauth_strings.xml`からファイルを除外して、アプリ ID が誤ってリークしないようにすることをお勧めします。
+> Git などのソース管理を使用している場合は、この時点で、ソース管理`msal_config.json`からファイルを除外して、アプリ ID が誤ってリークしないようにすることをお勧めします。
 
 ## <a name="implement-sign-in"></a>サインインの実装
 
@@ -36,19 +49,21 @@
     > [!NOTE]
     > これらのアクセス許可は、MSAL ライブラリでユーザーを認証するために必要です。
 
-1. 要素内に`application`次の要素を追加します。
+1. `application`要素内に次の要素を追加し、 `YOUR_PACKAGE_NAME_HERE`文字列をパッケージ名に置き換えます。
 
     ```xml
-    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+    <!--Intent filter to capture authorization code response from the default browser on the
+        device calling back to the app after interactive sign in -->
+    <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
-
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
-
             <data
-                android:host="auth"
-                android:scheme="@string/oauth_redirect_uri" />
+                android:scheme="msauth"
+                android:host="YOUR_PACKAGE_NAME_HERE"
+                android:path="/callback" />
         </intent-filter>
     </activity>
     ```
@@ -62,23 +77,33 @@
 
     import android.app.Activity;
     import android.content.Context;
-    import android.content.Intent;
-
+    import android.util.Log;
     import com.microsoft.identity.client.AuthenticationCallback;
-    import com.microsoft.identity.client.IAccount;
+    import com.microsoft.identity.client.IPublicClientApplication;
+    import com.microsoft.identity.client.ISingleAccountPublicClientApplication;
     import com.microsoft.identity.client.PublicClientApplication;
+    import com.microsoft.identity.client.exception.MsalException;
 
     // Singleton class - the app only needs a single instance
     // of PublicClientApplication
     public class AuthenticationHelper {
         private static AuthenticationHelper INSTANCE = null;
-        private PublicClientApplication mPCA = null;
-        private String[] mScopes;
+        private ISingleAccountPublicClientApplication mPCA = null;
+        private String[] mScopes = { "User.Read", "Calendars.Read" };
 
         private AuthenticationHelper(Context ctx) {
-            String appId = ctx.getResources().getString(R.string.oauth_app_id);
-            mScopes = ctx.getResources().getStringArray(R.array.oauth_scopes);
-            mPCA = new PublicClientApplication(ctx, appId);
+            PublicClientApplication.createSingleAccountPublicClientApplication(ctx, R.raw.msal_config,
+                new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
+                    @Override
+                    public void onCreated(ISingleAccountPublicClientApplication application) {
+                        mPCA = application;
+                    }
+
+                    @Override
+                    public void onError(MsalException exception) {
+                        Log.e("AUTHHELPER", "Error creating MSAL application", exception);
+                    }
+                });
         }
 
         public static synchronized AuthenticationHelper getInstance(Context ctx) {
@@ -94,32 +119,34 @@
         public static synchronized AuthenticationHelper getInstance() {
             if (INSTANCE == null) {
                 throw new IllegalStateException(
-                        "AuthenticationHelper has not been initialized from MainActivity");
+                    "AuthenticationHelper has not been initialized from MainActivity");
             }
 
             return INSTANCE;
         }
 
-        public boolean hasAccount() {
-            return !mPCA.getAccounts().isEmpty();
-        }
-
-        public void handleRedirect(int requestCode, int resultCode, Intent data) {
-            mPCA.handleInteractiveRequestRedirect(requestCode, resultCode, data);
-        }
-
         public void acquireTokenInteractively(Activity activity, AuthenticationCallback callback) {
-            mPCA.acquireToken(activity, mScopes, callback);
+            mPCA.signIn(activity, null, mScopes, callback);
         }
 
         public void acquireTokenSilently(AuthenticationCallback callback) {
-            mPCA.acquireTokenSilentAsync(mScopes, mPCA.getAccounts().get(0), callback);
+            // Get the authority from MSAL config
+            String authority = mPCA.getConfiguration().getDefaultAuthority().getAuthorityURL().toString();
+            mPCA.acquireTokenSilentAsync(mScopes, authority, callback);
         }
 
         public void signOut() {
-            for (IAccount account : mPCA.getAccounts()) {
-                mPCA.removeAccount(account);
-            }
+            mPCA.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
+                @Override
+                public void onSignOut() {
+                    Log.d("AUTHHELPER", "Signed out");
+                }
+
+                @Override
+                public void onError(@NonNull MsalException exception) {
+                    Log.d("AUTHHELPER", "MSAL error signing out", exception);
+                }
+            });
         }
     }
     ```
@@ -127,12 +154,10 @@
 1. **Mainactivity**を開き、次`import`のステートメントを追加します。
 
     ```java
-    import android.content.Intent;
-    import android.support.annotation.Nullable;
     import android.util.Log;
 
     import com.microsoft.identity.client.AuthenticationCallback;
-    import com.microsoft.identity.client.AuthenticationResult;
+    import com.microsoft.identity.client.IAuthenticationResult;
     import com.microsoft.identity.client.exception.MsalClientException;
     import com.microsoft.identity.client.exception.MsalException;
     import com.microsoft.identity.client.exception.MsalServiceException;
@@ -150,17 +175,6 @@
     ```java
     // Get the authentication helper
     mAuthHelper = AuthenticationHelper.getInstance(getApplicationContext());
-    ```
-
-1. 認証応答を処理`onActivityResult`するためのオーバーライドを追加します。
-
-    ```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        mAuthHelper.handleRedirect(requestCode, resultCode, data);
-    }
     ```
 
 1. 次の関数を`MainActivity`クラスに追加します。
@@ -182,7 +196,7 @@
         return new AuthenticationCallback() {
 
             @Override
-            public void onSuccess(AuthenticationResult authenticationResult) {
+            public void onSuccess(IAuthenticationResult authenticationResult) {
                 // Log the token for debug purposes
                 String accessToken = authenticationResult.getAccessToken();
                 Log.d("AUTH", String.format("Access token: %s", accessToken));
@@ -200,8 +214,13 @@
                     doInteractiveSignIn();
 
                 } else if (exception instanceof MsalClientException) {
-                    // Exception inside MSAL, more info inside MsalError.java
-                    Log.e("AUTH", "Client error authenticating", exception);
+                    if (exception.getErrorCode() == "no_current_account") {
+                        Log.d("AUTH", "No current account, interactive login required");
+                        doInteractiveSignIn();
+                    } else {
+                        // Exception inside MSAL, more info inside MsalError.java
+                        Log.e("AUTH", "Client error authenticating", exception);
+                    }
                 } else if (exception instanceof MsalServiceException) {
                     // Exception when communicating with the auth server, likely config issue
                     Log.e("AUTH", "Service error authenticating", exception);
@@ -224,11 +243,10 @@
     ```java
     private void signIn() {
         showProgressBar();
-        if (mAuthHelper.hasAccount()) {
-            doSilentSignIn();
-        } else {
-            doInteractiveSignIn();
-        }
+        // Attempt silent sign in first
+        // if this fails, the callback will handle doing
+        // interactive sign in
+        doSilentSignIn();
     }
 
     private void signOut() {

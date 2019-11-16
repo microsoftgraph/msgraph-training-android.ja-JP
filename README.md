@@ -31,13 +31,14 @@
 | ロール                | 作成者 (s)                                               |
 | -------------------- | ------------------------------------------------------- |
 | ラボのマニュアル/スライド | Andrew Connell (Microsoft MVP、Voitanos) @andrewconnell |
-| Graph Java SDK コード  | vikyding (Microsoft) @vikyding                          |
+| コード                 | Jason ジョンストン (Microsoft) @jasonjohmsft                |
 | スポンサー/サポート    | Yina (Microsoft) @yinaa                          |
 
 ## <a name="version-history"></a>バージョン履歴
 
 | バージョン | 日付               | コメント                                                                   |
 | ------- | ------------------ | -------------------------------------------------------------------------- |
+| 1.9     | 2019年11月13日  | Androidx アーティファクトと最新の Android SDK、MSAL、Graph SDK を含むプロジェクトの再作成 |
 | 1.8     | 2019年6月18日      | 更新された readme を screencast レコーディングに更新しました                           |
 | 1.7     | 2019年3月30日     | FY2019Q4 コンテンツの更新                                                   |
 | 1.6     | 2019 年 2 月 20 日  | Docs.microsoft.com 形式に更新されました                                       |
@@ -50,6 +51,7 @@
 
 ## <a name="disclaimer"></a>免責事項
 
-**このコードは、 __ 特定の目的、市販性、または非侵害に対する暗黙の保証を含め、明示的または黙示的ないかなる種類の保証なしに提供されます。**
+**このコードは、特定の目的、市販性、または非侵害に対する暗黙の保証を含め、明示的または黙示的ないかなる種類の保証なし_に提供されます_。**
 
+<!-- markdownlint-disable MD033 -->
 <img src="https://telemetry.sharepointpnp.com/msgraph-training-android" />

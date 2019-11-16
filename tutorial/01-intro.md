@@ -10,7 +10,7 @@
 このチュートリアルを開始する前に、開発用のコンピューターに[Android Studio](https://developer.android.com/studio/)がインストールされている必要があります。
 
 > [!NOTE]
-> このチュートリアルは、1.8.0 JRE および Android 9.0 SDK を使用して Android Studio バージョン3.3.1 を使用して作成されました。 このガイドの手順は、他のバージョンでは動作しますが、テストされていません。
+> このチュートリアルは、Android Studio version 3.5.1 および Android 10.0 SDK で記述されています。 このガイドの手順は、他のバージョンでは動作しますが、テストされていません。
 
 ## <a name="watch-the-tutorial"></a>チュートリアルを見る
 

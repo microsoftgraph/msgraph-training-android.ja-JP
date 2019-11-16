@@ -8,18 +8,18 @@
 
     ![Android Studio の [新しいプロジェクトの作成] ダイアログのスクリーンショット](./images/choose-project.png)
 
-1. [**プロジェクトの構成**] ダイアログで、[**名前**] `Graph Tutorial`をに設定し、[ **Language** ] `Java`フィールドがに設定されていることを`API 27: Android 8.1 (Oreo)`確認して、[**最小 API レベル**] がに設定されていることを確認します。 必要に応じて、**パッケージ名**と**保存場所**を変更します。 **[完了]** を選択します。
+1. [**プロジェクトの構成**] ダイアログで、[**名前**] `Graph Tutorial`をに設定し、[ **Language** ] `Java`フィールドがに設定されていることを`API 29: Android 10.0 (Q)`確認して、[**最小 API レベル**] がに設定されていることを確認します。 必要に応じて、**パッケージ名**と**保存場所**を変更します。 **[完了]** を選択します。
 
     ![[プロジェクトの構成] ダイアログのスクリーンショット](./images/configure-project.png)
 
 > [!IMPORTANT]
-> これらのラボ手順で指定したプロジェクトの名前と完全に同じ名前を入力してください。 プロジェクト名は、コード内の名前空間の一部になります。 これらの手順内のコードは、この手順で指定したプロジェクト名に一致する名前空間に依存します。 別のプロジェクト名を使用すると、プロジェクトの作成時に入力したプロジェクト名に一致するすべての名前空間を調整しない限り、コードはコンパイルされません。
+> このチュートリアルのコードと手順では、パッケージ名の**チュートリアル**を使用します。 プロジェクトを作成するときに別のパッケージ名を使用する場合は、この値が表示されているすべての場所にパッケージ名を使用してください。
 
 ## <a name="install-dependencies"></a>依存関係のインストール
 
 に進む前に、後で使用する追加の依存関係をインストールします。
 
-- `com.android.support:design`を選択して、ナビゲーションドロアーレイアウトをアプリで使用できるようにします。
+- `com.google.android.material:material`を選択すると、アプリで[ナビゲーションビュー](https://material.io/develop/android/components/navigation-view/)を使用できるようになります。
 - Azure AD 認証とトークン管理を処理するため[の、Android 用 Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) 。
 - Microsoft graph [SDK For Java](https://github.com/microsoftgraph/msgraph-sdk-java)を使用して microsoft graph を呼び出すことができます。
 
@@ -28,15 +28,12 @@
 1. 値の`dependencies`中に次の行を追加します。
 
     ```Gradle
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.microsoft.graph:microsoft-graph:1.4.0'
-    implementation 'com.microsoft.identity.client:msal:0.2.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.microsoft.identity.client:msal:1.0.0'
+    implementation 'com.microsoft.graph:microsoft-graph:1.6.0'
     ```
 
-    > [!NOTE]
-    > 別のバージョンの SDK を使用している場合は、を`28.0.0`変更して、gradle に`com.android.support:appcompat-v7`既に存在する**** 依存関係のバージョンと一致するようにしてください。
-
-1. `packagingOptions` **Gradle (Module: app)** ファイル内の値の`android`内部を追加します。
+1. `packagingOptions` **Gradle (Module: app)** ファイル内の値の`android`中に値を追加します。
 
     ```Gradle
     packagingOptions {
@@ -48,7 +45,7 @@
 
 ## <a name="design-the-app"></a>アプリを設計する
 
-アプリケーションは、[ナビゲーションドロアー](https://developer.android.com/training/implementing-navigation/nav-drawer)を使用して、さまざまなビュー間を移動します。 この手順では、ナビゲーションドロアーレイアウトを使用するようにアクティビティを更新し、ビューのフラグメントを追加します。
+アプリケーションは、ナビゲーションドロアーを使用して、さまざまなビュー間を移動します。 この手順では、ナビゲーションドロアーレイアウトを使用するようにアクティビティを更新し、ビューのフラグメントを追加します。
 
 ### <a name="create-a-navigation-drawer"></a>ナビゲーションドロアーを作成する
 
@@ -139,7 +136,7 @@
 
 1. ファイル`nav_header`に名前を指定し、**ルート要素**をに`LinearLayout`変更して、[ **OK]** を選択します。
 
-1. **Nav_header**ファイルを開き、[**テキスト**] タブを選択します。内容全体を次のように置き換えます。
+1. **Nav_header .xml**ファイルを開き、[**テキスト**] タブを選択します。内容全体を次のように置き換えます。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -175,11 +172,11 @@
     </LinearLayout>
     ```
 
-1. **App/res/layout/activity_main**ファイルを開き、既存の xml を次のよう`DrawerLayout`に置き換えてレイアウトをに更新します。
+1. **App/res/layout/activity_main .xml**ファイルを開き、既存の xml を次の`DrawerLayout`ように置き換えてレイアウトをに更新します。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/drawer_layout"
@@ -201,7 +198,7 @@
                 android:layout_centerInParent="true"
                 android:visibility="gone"/>
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -216,7 +213,7 @@
                 android:layout_below="@+id/toolbar" />
         </RelativeLayout>
 
-        <android.support.design.widget.NavigationView
+        <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -224,7 +221,7 @@
             app:headerLayout="@layout/nav_header"
             app:menu="@menu/drawer_menu" />
 
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
     ```
 
 1. **App/res/values/strings/strings**を開き、要素内に`resources`次の要素を追加します。
@@ -239,20 +236,20 @@
     ```java
     package com.example.graphtutorial;
 
-    import android.support.annotation.NonNull;
-    import android.support.design.widget.NavigationView;
-    import android.support.v4.view.GravityCompat;
-    import android.support.v4.widget.DrawerLayout;
-    import android.support.v7.app.ActionBarDrawerToggle;
-    import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
-    import android.support.v7.widget.Toolbar;
     import android.view.Menu;
     import android.view.MenuItem;
     import android.view.View;
     import android.widget.FrameLayout;
     import android.widget.ProgressBar;
     import android.widget.TextView;
+    import androidx.annotation.NonNull;
+    import androidx.appcompat.app.ActionBarDrawerToggle;
+    import androidx.appcompat.app.AppCompatActivity;
+    import androidx.appcompat.widget.Toolbar;
+    import androidx.core.view.GravityCompat;
+    import androidx.drawerlayout.widget.DrawerLayout;
+    import com.google.android.material.navigation.NavigationView;
 
     public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
         private DrawerLayout mDrawer;
@@ -361,7 +358,7 @@
 
 1. ファイル`fragment_home`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。
 
-1. **Fragment_home**ファイルを開き、その内容を次のように置き換えます。
+1. **Fragment_home .xml**ファイルを開き、その内容を次のように置き換えます。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -399,7 +396,7 @@
 
 1. ファイル`fragment_calendar`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。
 
-1. **Fragment_calendar**ファイルを開き、その内容を次のように置き換えます。
+1. **Fragment_calendar .xml**ファイルを開き、その内容を次のように置き換えます。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -419,7 +416,7 @@
 
 1. [ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。
 
-1. クラス`HomeFragment`の名前を指定し、**スーパー**クラスをに`android.support.v4.app.Fragment`設定して、[ **OK]** を選択します。
+1. クラス`HomeFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。
 
 1. [**ホーム] フラグメント**ファイルを開き、そのコンテンツを次のように置き換えます。
 
@@ -480,15 +477,28 @@
 
 1. [ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。
 
-1. クラス`CalendarFragment`の名前を指定し、**スーパー**クラスをに`android.support.v4.app.Fragment`設定して、[ **OK]** を選択します。
+1. クラス`CalendarFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。
 
-1. **Calendarfragment**ファイルを開き、次の関数を`CalendarFragment`クラスに追加します。
+1. **Calendarfragment**ファイルを開き、その内容を次のように置き換えます。
 
     ```java
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+    package com.example.graphtutorial;
+
+    import android.os.Bundle;
+    import android.view.LayoutInflater;
+    import android.view.View;
+    import android.view.ViewGroup;
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.Fragment;
+
+    public class CalendarFragment extends Fragment {
+
+        @Nullable
+        @Override
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_calendar, container, false);
+        }
     }
     ```
 

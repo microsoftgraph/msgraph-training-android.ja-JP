@@ -59,7 +59,7 @@
     import com.microsoft.graph.models.extensions.Event;
     import com.microsoft.graph.requests.extensions.IEventCollectionPage;
     import com.microsoft.identity.client.AuthenticationCallback;
-    import com.microsoft.identity.client.AuthenticationResult;
+    import com.microsoft.identity.client.IAuthenticationResult;
     import com.microsoft.identity.client.exception.MsalException;
     import java.util.List;
     ```
@@ -114,7 +114,7 @@
     }
     ```
 
-1. Microsoft Graph `onCreate`からユーザーの`GraphHelper`イベントを取得するには、クラスの関数をオーバーライドします。
+1. Microsoft Graph `onCreate`からユーザーの`CalendarFragment`イベントを取得するには、クラスの関数をオーバーライドします。
 
     ```java
     @Override
@@ -128,7 +128,7 @@
         AuthenticationHelper.getInstance()
                 .acquireTokenSilently(new AuthenticationCallback() {
                     @Override
-                    public void onSuccess(AuthenticationResult authenticationResult) {
+                    public void onSuccess(IAuthenticationResult authenticationResult) {
                         final GraphHelper graphHelper = GraphHelper.getInstance();
 
                         // Get the user's events
@@ -160,7 +160,7 @@
 
 これで、JSON ダンプを、ユーザーにわかりやすい方法で結果を表示するためのものに置き換えることができます。 このセクションでは、予定表フラグメント`ListView`にを追加し、 `ListView`の各アイテムに対してレイアウトを作成します。また、それぞれ`ListView` `Event`のフィールドをビューで適切`TextView`にマップするためのカスタムリストアダプターを作成します。
 
-1. `TextView` **App/res/layout/fragment_calendar**をと置き換え`ListView`ます。
+1. `TextView` **App/res/layout/fragment_calendar .xml**のをと置き換え`ListView`ます。
 
     ```xml
     <ListView
@@ -175,7 +175,7 @@
 
 1. ファイル`event_list_item`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。
 
-1. **Event_list_item**ファイルを開き、その内容を次のように置き換えます。
+1. **Event_list_item .xml**ファイルを開き、その内容を次のように置き換えます。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -249,16 +249,14 @@
     package com.example.graphtutorial;
 
     import android.content.Context;
-    import android.support.annotation.NonNull;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.ArrayAdapter;
     import android.widget.TextView;
-
+    import androidx.annotation.NonNull;
     import com.microsoft.graph.models.extensions.DateTimeTimeZone;
     import com.microsoft.graph.models.extensions.Event;
-
     import java.time.LocalDateTime;
     import java.time.ZoneId;
     import java.time.ZonedDateTime;
