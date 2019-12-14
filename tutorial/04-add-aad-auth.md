@@ -258,7 +258,7 @@
     ```
 
     > [!NOTE]
-    > このメソッドは`signIn` 、最初に msal キャッシュに既にユーザーアカウントがあるかどうかを確認します。 存在する場合は、トークンを自動的に更新しようとして、アプリを起動するたびにユーザーに確認を求める必要がなくなります。
+    > `signIn`メソッドがサイレントサインイン (via `doSilentSignIn`) を実行することに注意してください。 このメソッドのコールバックは、無音が失敗した場合に対話型サインインを行います。 これにより、アプリを起動するたびにユーザーにメッセージを表示する必要がなくなります。
 
 1. 変更内容を保存し、アプリケーションを実行します。
 
@@ -396,7 +396,7 @@
 
     ```java
     @Override
-    public void onSuccess(AuthenticationResult authenticationResult) {
+    public void onSuccess(IAuthenticationResult authenticationResult) {
         // Log the token for debug purposes
         String accessToken = authenticationResult.getAccessToken();
         Log.d("AUTH", String.format("Access token: %s", accessToken));
