@@ -1,31 +1,31 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="8b3da-101">最初に、新しい Android Studio プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-101">Begin by creating a new Android Studio project.</span></span>
+<span data-ttu-id="22a73-101">最初に、新しい Android Studio プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="22a73-101">Begin by creating a new Android Studio project.</span></span>
 
-1. <span data-ttu-id="8b3da-102">[Android Studio] を開き、[ようこそ] 画面で [**新しい Android studio プロジェクトの開始**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-102">Open Android Studio, and select **Start a new Android Studio project** on the welcome screen.</span></span>
+1. <span data-ttu-id="22a73-102">[Android Studio] を開き、[ようこそ] 画面で [**新しい Android studio プロジェクトの開始**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-102">Open Android Studio, and select **Start a new Android Studio project** on the welcome screen.</span></span>
 
-1. <span data-ttu-id="8b3da-103">[**新しいプロジェクトの作成**] ダイアログで、[**空のアクティビティ**] を選択し、[**次へ**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-103">In the **Create New Project** dialog, select **Empty Activity**, then select **Next**.</span></span>
+1. <span data-ttu-id="22a73-103">[**新しいプロジェクトの作成**] ダイアログで、[**空のアクティビティ**] を選択し、[**次へ**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-103">In the **Create New Project** dialog, select **Empty Activity**, then select **Next**.</span></span>
 
     ![Android Studio の [新しいプロジェクトの作成] ダイアログのスクリーンショット](./images/choose-project.png)
 
-1. <span data-ttu-id="8b3da-105">[**プロジェクトの構成**] ダイアログで、[**名前**] `Graph Tutorial`をに設定し、[ **Language** ] `Java`フィールドがに設定されていることを`API 29: Android 10.0 (Q)`確認して、[**最小 API レベル**] がに設定されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-105">In the **Configure your project** dialog, set the **Name** to `Graph Tutorial`, ensure the **Language** field is set to `Java`, and ensure the **Minimum API level** is set to `API 29: Android 10.0 (Q)`.</span></span> <span data-ttu-id="8b3da-106">必要に応じて、**パッケージ名**と**保存場所**を変更します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-106">Modify the **Package name** and **Save location** as needed.</span></span> <span data-ttu-id="8b3da-107">**[完了]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-107">Select **Finish**.</span></span>
+1. <span data-ttu-id="22a73-105">[**プロジェクトの構成**] ダイアログで、[**名前**] `Graph Tutorial`をに設定し、[ **Language** ] `Java`フィールドがに設定されていることを`API 29: Android 10.0 (Q)`確認して、[**最小 API レベル**] がに設定されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="22a73-105">In the **Configure your project** dialog, set the **Name** to `Graph Tutorial`, ensure the **Language** field is set to `Java`, and ensure the **Minimum API level** is set to `API 29: Android 10.0 (Q)`.</span></span> <span data-ttu-id="22a73-106">必要に応じて、**パッケージ名**と**保存場所**を変更します。</span><span class="sxs-lookup"><span data-stu-id="22a73-106">Modify the **Package name** and **Save location** as needed.</span></span> <span data-ttu-id="22a73-107">**[完了]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-107">Select **Finish**.</span></span>
 
     ![[プロジェクトの構成] ダイアログのスクリーンショット](./images/configure-project.png)
 
 > [!IMPORTANT]
-> <span data-ttu-id="8b3da-109">このチュートリアルのコードと手順では、パッケージ名の**チュートリアル**を使用します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-109">The code and instructions in this tutorial use the package name **com.example.graphtutorial**.</span></span> <span data-ttu-id="8b3da-110">プロジェクトを作成するときに別のパッケージ名を使用する場合は、この値が表示されているすべての場所にパッケージ名を使用してください。</span><span class="sxs-lookup"><span data-stu-id="8b3da-110">If you use a different package name when creating the project, be sure to use your package name wherever you see this value.</span></span>
+> <span data-ttu-id="22a73-109">このチュートリアルのコードと手順では、パッケージ名の**チュートリアル**を使用します。</span><span class="sxs-lookup"><span data-stu-id="22a73-109">The code and instructions in this tutorial use the package name **com.example.graphtutorial**.</span></span> <span data-ttu-id="22a73-110">プロジェクトを作成するときに別のパッケージ名を使用する場合は、この値が表示されているすべての場所にパッケージ名を使用してください。</span><span class="sxs-lookup"><span data-stu-id="22a73-110">If you use a different package name when creating the project, be sure to use your package name wherever you see this value.</span></span>
 
-## <a name="install-dependencies"></a><span data-ttu-id="8b3da-111">依存関係のインストール</span><span class="sxs-lookup"><span data-stu-id="8b3da-111">Install dependencies</span></span>
+## <a name="install-dependencies"></a><span data-ttu-id="22a73-111">依存関係のインストール</span><span class="sxs-lookup"><span data-stu-id="22a73-111">Install dependencies</span></span>
 
-<span data-ttu-id="8b3da-112">に進む前に、後で使用する追加の依存関係をインストールします。</span><span class="sxs-lookup"><span data-stu-id="8b3da-112">Before moving on, install some additional dependencies that you will use later.</span></span>
+<span data-ttu-id="22a73-112">に進む前に、後で使用する追加の依存関係をインストールします。</span><span class="sxs-lookup"><span data-stu-id="22a73-112">Before moving on, install some additional dependencies that you will use later.</span></span>
 
-- <span data-ttu-id="8b3da-113">`com.google.android.material:material`を選択すると、アプリで[ナビゲーションビュー](https://material.io/develop/android/components/navigation-view/)を使用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="8b3da-113">`com.google.android.material:material` to make the [navigation view](https://material.io/develop/android/components/navigation-view/) available to the app.</span></span>
-- <span data-ttu-id="8b3da-114">Azure AD 認証とトークン管理を処理するため[の、Android 用 Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) 。</span><span class="sxs-lookup"><span data-stu-id="8b3da-114">[Microsoft Authentication Library (MSAL) for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) to handle Azure AD authentication and token management.</span></span>
-- <span data-ttu-id="8b3da-115">Microsoft graph [SDK For Java](https://github.com/microsoftgraph/msgraph-sdk-java)を使用して microsoft graph を呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-115">[Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) for making calls to the Microsoft Graph.</span></span>
+- <span data-ttu-id="22a73-113">`com.google.android.material:material`を選択すると、アプリで[ナビゲーションビュー](https://material.io/develop/android/components/navigation-view/)を使用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="22a73-113">`com.google.android.material:material` to make the [navigation view](https://material.io/develop/android/components/navigation-view/) available to the app.</span></span>
+- <span data-ttu-id="22a73-114">Azure AD 認証とトークン管理を処理するため[の、Android 用 Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) 。</span><span class="sxs-lookup"><span data-stu-id="22a73-114">[Microsoft Authentication Library (MSAL) for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) to handle Azure AD authentication and token management.</span></span>
+- <span data-ttu-id="22a73-115">Microsoft graph [SDK For Java](https://github.com/microsoftgraph/msgraph-sdk-java)を使用して microsoft graph を呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="22a73-115">[Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) for making calls to the Microsoft Graph.</span></span>
 
-1. <span data-ttu-id="8b3da-116">[ **Gradle Scripts**] を展開し、 **Gradle (Module: app)** ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-116">Expand **Gradle Scripts**, then open the **build.gradle (Module: app)** file.</span></span>
+1. <span data-ttu-id="22a73-116">[ **Gradle Scripts**] を展開し、 **Gradle (Module: app)** ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="22a73-116">Expand **Gradle Scripts**, then open the **build.gradle (Module: app)** file.</span></span>
 
-1. <span data-ttu-id="8b3da-117">値の`dependencies`中に次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-117">Add the following lines inside the `dependencies` value.</span></span>
+1. <span data-ttu-id="22a73-117">値の`dependencies`中に次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-117">Add the following lines inside the `dependencies` value.</span></span>
 
     ```Gradle
     implementation 'com.google.android.material:material:1.0.0'
@@ -33,7 +33,7 @@
     implementation 'com.microsoft.graph:microsoft-graph:1.6.0'
     ```
 
-1. <span data-ttu-id="8b3da-118">`packagingOptions` **Gradle (Module: app)** ファイル内の値の`android`中に値を追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-118">Add a `packagingOptions` value inside the `android` value in the **build.gradle (Module: app)** file.</span></span>
+1. <span data-ttu-id="22a73-118">`packagingOptions` **Gradle (Module: app)** ファイル内の値の`android`中に値を追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-118">Add a `packagingOptions` value inside the `android` value in the **build.gradle (Module: app)** file.</span></span>
 
     ```Gradle
     packagingOptions {
@@ -41,47 +41,47 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-119">変更内容を保存します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-119">Save your changes.</span></span> <span data-ttu-id="8b3da-120">[**ファイル**] メニューの [**プロジェクトを Gradle ファイルと同期**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-120">On the **File** menu, select **Sync Project with Gradle Files**.</span></span>
+1. <span data-ttu-id="22a73-119">変更内容を保存します。</span><span class="sxs-lookup"><span data-stu-id="22a73-119">Save your changes.</span></span> <span data-ttu-id="22a73-120">[**ファイル**] メニューの [**プロジェクトを Gradle ファイルと同期**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-120">On the **File** menu, select **Sync Project with Gradle Files**.</span></span>
 
-## <a name="design-the-app"></a><span data-ttu-id="8b3da-121">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="8b3da-121">Design the app</span></span>
+## <a name="design-the-app"></a><span data-ttu-id="22a73-121">アプリを設計する</span><span class="sxs-lookup"><span data-stu-id="22a73-121">Design the app</span></span>
 
-<span data-ttu-id="8b3da-122">アプリケーションは、ナビゲーションドロアーを使用して、さまざまなビュー間を移動します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-122">The application will use a navigation drawer to navigate between different views.</span></span> <span data-ttu-id="8b3da-123">この手順では、ナビゲーションドロアーレイアウトを使用するようにアクティビティを更新し、ビューのフラグメントを追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-123">In this step you will update the activity to use a navigation drawer layout, and add fragments for the views.</span></span>
+<span data-ttu-id="22a73-122">アプリケーションは、ナビゲーションドロアーを使用して、さまざまなビュー間を移動します。</span><span class="sxs-lookup"><span data-stu-id="22a73-122">The application will use a navigation drawer to navigate between different views.</span></span> <span data-ttu-id="22a73-123">この手順では、ナビゲーションドロアーレイアウトを使用するようにアクティビティを更新し、ビューのフラグメントを追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-123">In this step you will update the activity to use a navigation drawer layout, and add fragments for the views.</span></span>
 
-### <a name="create-a-navigation-drawer"></a><span data-ttu-id="8b3da-124">ナビゲーションドロアーを作成する</span><span class="sxs-lookup"><span data-stu-id="8b3da-124">Create a navigation drawer</span></span>
+### <a name="create-a-navigation-drawer"></a><span data-ttu-id="22a73-124">ナビゲーションドロアーを作成する</span><span class="sxs-lookup"><span data-stu-id="22a73-124">Create a navigation drawer</span></span>
 
-<span data-ttu-id="8b3da-125">このセクションでは、アプリのナビゲーションメニューのアイコンを作成し、アプリケーションのメニューを作成します。さらに、ナビゲーションドロアーとの互換性を持たせるためにアプリケーションのテーマとレイアウトを更新します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-125">In this section you will create icons for the app's navigation menu, create a menu for the application, and update the application's theme and layout to be compatible with a navigation drawer.</span></span>
+<span data-ttu-id="22a73-125">このセクションでは、アプリのナビゲーションメニューのアイコンを作成し、アプリケーションのメニューを作成します。さらに、ナビゲーションドロアーとの互換性を持たせるためにアプリケーションのテーマとレイアウトを更新します。</span><span class="sxs-lookup"><span data-stu-id="22a73-125">In this section you will create icons for the app's navigation menu, create a menu for the application, and update the application's theme and layout to be compatible with a navigation drawer.</span></span>
 
-#### <a name="create-icons"></a><span data-ttu-id="8b3da-126">アイコンを作成する</span><span class="sxs-lookup"><span data-stu-id="8b3da-126">Create icons</span></span>
+#### <a name="create-icons"></a><span data-ttu-id="22a73-126">アイコンを作成する</span><span class="sxs-lookup"><span data-stu-id="22a73-126">Create icons</span></span>
 
-1. <span data-ttu-id="8b3da-127">**App/res/** 作成用フォルダーを右クリックし、[**新規**]、[**ベクトルアセット**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-127">Right-click the **app/res/drawable** folder and select **New**, then **Vector Asset**.</span></span>
+1. <span data-ttu-id="22a73-127">**App/res/** 作成用フォルダーを右クリックし、[**新規**]、[**ベクトルアセット**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-127">Right-click the **app/res/drawable** folder and select **New**, then **Vector Asset**.</span></span>
 
-1. <span data-ttu-id="8b3da-128">[**クリップアート**] の横にあるアイコンボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="8b3da-128">Click the icon button next to **Clip Art**.</span></span>
+1. <span data-ttu-id="22a73-128">[**クリップアート**] の横にあるアイコンボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="22a73-128">Click the icon button next to **Clip Art**.</span></span>
 
-1. <span data-ttu-id="8b3da-129">**[アイコンの選択**] ウィンドウで`home` 、検索バーに入力し、[**ホーム**] アイコンを選択して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-129">In the **Select Icon** window, type `home` in the search bar, then select the **Home** icon and select **OK**.</span></span>
+1. <span data-ttu-id="22a73-129">**[アイコンの選択**] ウィンドウで`home` 、検索バーに入力し、[**ホーム**] アイコンを選択して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-129">In the **Select Icon** window, type `home` in the search bar, then select the **Home** icon and select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-130">**名前**をに`ic_menu_home`変更します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-130">Change the **Name** to `ic_menu_home`.</span></span>
+1. <span data-ttu-id="22a73-130">**名前**をに`ic_menu_home`変更します。</span><span class="sxs-lookup"><span data-stu-id="22a73-130">Change the **Name** to `ic_menu_home`.</span></span>
 
     ![[ベクトルアセットの構成] ウィンドウのスクリーンショット](./images/create-icon.png)
 
-1. <span data-ttu-id="8b3da-132">[**次へ**] を選択し、[**完了**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-132">Select **Next**, then **Finish**.</span></span>
+1. <span data-ttu-id="22a73-132">[**次へ**] を選択し、[**完了**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-132">Select **Next**, then **Finish**.</span></span>
 
-1. <span data-ttu-id="8b3da-133">前の手順を繰り返して、さらに3つのアイコンを作成します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-133">Repeat the previous step to create three more icons.</span></span>
+1. <span data-ttu-id="22a73-133">前の手順を繰り返して、さらに3つのアイコンを作成します。</span><span class="sxs-lookup"><span data-stu-id="22a73-133">Repeat the previous step to create three more icons.</span></span>
 
-    - <span data-ttu-id="8b3da-134">名前: `ic_menu_calendar`、アイコン:`event`</span><span class="sxs-lookup"><span data-stu-id="8b3da-134">Name: `ic_menu_calendar`, Icon: `event`</span></span>
-    - <span data-ttu-id="8b3da-135">名前: `ic_menu_signout`、アイコン:`exit to app`</span><span class="sxs-lookup"><span data-stu-id="8b3da-135">Name: `ic_menu_signout`, Icon: `exit to app`</span></span>
-    - <span data-ttu-id="8b3da-136">名前: `ic_menu_signin`、アイコン:`person add`</span><span class="sxs-lookup"><span data-stu-id="8b3da-136">Name: `ic_menu_signin`, Icon: `person add`</span></span>
+    - <span data-ttu-id="22a73-134">名前: `ic_menu_calendar`、アイコン:`event`</span><span class="sxs-lookup"><span data-stu-id="22a73-134">Name: `ic_menu_calendar`, Icon: `event`</span></span>
+    - <span data-ttu-id="22a73-135">名前: `ic_menu_signout`、アイコン:`exit to app`</span><span class="sxs-lookup"><span data-stu-id="22a73-135">Name: `ic_menu_signout`, Icon: `exit to app`</span></span>
+    - <span data-ttu-id="22a73-136">名前: `ic_menu_signin`、アイコン:`person add`</span><span class="sxs-lookup"><span data-stu-id="22a73-136">Name: `ic_menu_signin`, Icon: `person add`</span></span>
 
-#### <a name="create-the-menu"></a><span data-ttu-id="8b3da-137">メニューを作成する</span><span class="sxs-lookup"><span data-stu-id="8b3da-137">Create the menu</span></span>
+#### <a name="create-the-menu"></a><span data-ttu-id="22a73-137">メニューを作成する</span><span class="sxs-lookup"><span data-stu-id="22a73-137">Create the menu</span></span>
 
-1. <span data-ttu-id="8b3da-138">**Res**フォルダーを右クリックし、[**新規作成**]、[ **Android リソースディレクトリ**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-138">Right-click the **res** folder and select **New**, then **Android Resource Directory**.</span></span>
+1. <span data-ttu-id="22a73-138">**Res**フォルダーを右クリックし、[**新規作成**]、[ **Android リソースディレクトリ**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-138">Right-click the **res** folder and select **New**, then **Android Resource Directory**.</span></span>
 
-1. <span data-ttu-id="8b3da-139">リソースの**種類**をに`menu`変更し、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-139">Change the **Resource type** to `menu` and select **OK**.</span></span>
+1. <span data-ttu-id="22a73-139">リソースの**種類**をに`menu`変更し、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-139">Change the **Resource type** to `menu` and select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-140">新しい**メニュー**フォルダーを右クリックし、[**新規作成**]、[**メニューのリソースファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-140">Right-click the new **menu** folder and select **New**, then **Menu resource file**.</span></span>
+1. <span data-ttu-id="22a73-140">新しい**メニュー**フォルダーを右クリックし、[**新規作成**]、[**メニューのリソースファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-140">Right-click the new **menu** folder and select **New**, then **Menu resource file**.</span></span>
 
-1. <span data-ttu-id="8b3da-141">ファイル`drawer_menu`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-141">Name the file `drawer_menu` and select **OK**.</span></span>
+1. <span data-ttu-id="22a73-141">ファイル`drawer_menu`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-141">Name the file `drawer_menu` and select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-142">ファイルが開いたら、[**テキスト**] タブを選択して XML を表示し、コンテンツ全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-142">When the file opens, select the **Text** tab to view the XML, then replace the entire contents with the following.</span></span>
+1. <span data-ttu-id="22a73-142">ファイルが開いたら、[**テキスト**] タブを選択して XML を表示し、コンテンツ全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-142">When the file opens, select the **Text** tab to view the XML, then replace the entire contents with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -118,11 +118,11 @@
     </menu>
     ```
 
-#### <a name="update-application-theme-and-layout"></a><span data-ttu-id="8b3da-143">アプリケーションのテーマとレイアウトを更新する</span><span class="sxs-lookup"><span data-stu-id="8b3da-143">Update application theme and layout</span></span>
+#### <a name="update-application-theme-and-layout"></a><span data-ttu-id="22a73-143">アプリケーションのテーマとレイアウトを更新する</span><span class="sxs-lookup"><span data-stu-id="22a73-143">Update application theme and layout</span></span>
 
-1. <span data-ttu-id="8b3da-144">**App/res/values/styles xml**ファイルを開き、をに`Theme.AppCompat.Light.DarkActionBar` `Theme.AppCompat.Light.NoActionBar`置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-144">Open the **app/res/values/styles.xml** file and replace `Theme.AppCompat.Light.DarkActionBar` with `Theme.AppCompat.Light.NoActionBar`.</span></span>
+1. <span data-ttu-id="22a73-144">**App/res/values/styles xml**ファイルを開き、をに`Theme.AppCompat.Light.DarkActionBar` `Theme.AppCompat.Light.NoActionBar`置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-144">Open the **app/res/values/styles.xml** file and replace `Theme.AppCompat.Light.DarkActionBar` with `Theme.AppCompat.Light.NoActionBar`.</span></span>
 
-1. <span data-ttu-id="8b3da-145">要素内に`style`次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-145">Add the following lines inside the `style` element.</span></span>
+1. <span data-ttu-id="22a73-145">要素内に`style`次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-145">Add the following lines inside the `style` element.</span></span>
 
     ```xml
     <item name="windowActionBar">false</item>
@@ -130,13 +130,13 @@
     <item name="android:statusBarColor">@android:color/transparent</item>
     ```
 
-1. <span data-ttu-id="8b3da-146">**App/res/layout**フォルダーを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="8b3da-146">Right-click the **app/res/layout** folder.</span></span>
+1. <span data-ttu-id="22a73-146">**App/res/layout**フォルダーを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="22a73-146">Right-click the **app/res/layout** folder.</span></span>
 
-1. <span data-ttu-id="8b3da-147">[**新規**]、[**レイアウトリソースファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-147">Select **New**, then **Layout resource file**.</span></span>
+1. <span data-ttu-id="22a73-147">[**新規**]、[**レイアウトリソースファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-147">Select **New**, then **Layout resource file**.</span></span>
 
-1. <span data-ttu-id="8b3da-148">ファイル`nav_header`に名前を指定し、**ルート要素**をに`LinearLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-148">Name the file `nav_header` and change the **Root element** to `LinearLayout`, then select **OK**.</span></span>
+1. <span data-ttu-id="22a73-148">ファイル`nav_header`に名前を指定し、**ルート要素**をに`LinearLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-148">Name the file `nav_header` and change the **Root element** to `LinearLayout`, then select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-149">**Nav_header .xml**ファイルを開き、[**テキスト**] タブを選択します。内容全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-149">Open the **nav_header.xml** file and select the **Text** tab. Replace the entire contents with the following.</span></span>
+1. <span data-ttu-id="22a73-149">**Nav_header .xml**ファイルを開き、[**テキスト**] タブを選択します。内容全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-149">Open the **nav_header.xml** file and select the **Text** tab. Replace the entire contents with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -172,7 +172,7 @@
     </LinearLayout>
     ```
 
-1. <span data-ttu-id="8b3da-150">**App/res/layout/activity_main .xml**ファイルを開き、既存の xml を次の`DrawerLayout`ように置き換えてレイアウトをに更新します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-150">Open the **app/res/layout/activity_main.xml** file and update the layout to a `DrawerLayout` by replacing the existing XML with the following.</span></span>
+1. <span data-ttu-id="22a73-150">**App/res/layout/activity_main .xml**ファイルを開き、既存の xml を次の`DrawerLayout`ように置き換えてレイアウトをに更新します。</span><span class="sxs-lookup"><span data-stu-id="22a73-150">Open the **app/res/layout/activity_main.xml** file and update the layout to a `DrawerLayout` by replacing the existing XML with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -224,14 +224,14 @@
     </androidx.drawerlayout.widget.DrawerLayout>
     ```
 
-1. <span data-ttu-id="8b3da-151">**App/res/values/strings/strings**を開き、要素内に`resources`次の要素を追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-151">Open **app/res/values/strings.xml** and add the following elements inside the `resources` element.</span></span>
+1. <span data-ttu-id="22a73-151">**App/res/values/strings/strings**を開き、要素内に`resources`次の要素を追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-151">Open **app/res/values/strings.xml** and add the following elements inside the `resources` element.</span></span>
 
     ```xml
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     ```
 
-1. <span data-ttu-id="8b3da-152">**App/java/com/example/graphtutorial/MainActivity**ファイルを開き、内容全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-152">Open the **app/java/com.example/graphtutorial/MainActivity** file and replace the entire contents with the following.</span></span>
+1. <span data-ttu-id="22a73-152">**App/java/com/example/graphtutorial/MainActivity**ファイルを開き、内容全体を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-152">Open the **app/java/com.example/graphtutorial/MainActivity** file and replace the entire contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
@@ -350,15 +350,15 @@
     }
     ```
 
-### <a name="add-fragments"></a><span data-ttu-id="8b3da-153">フラグメントを追加する</span><span class="sxs-lookup"><span data-stu-id="8b3da-153">Add fragments</span></span>
+### <a name="add-fragments"></a><span data-ttu-id="22a73-153">フラグメントを追加する</span><span class="sxs-lookup"><span data-stu-id="22a73-153">Add fragments</span></span>
 
-<span data-ttu-id="8b3da-154">このセクションでは、ホームビューと予定表ビューのフラグメントを作成します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-154">In this section you will create fragments for the home and calendar views.</span></span>
+<span data-ttu-id="22a73-154">このセクションでは、ホームビューと予定表ビューのフラグメントを作成します。</span><span class="sxs-lookup"><span data-stu-id="22a73-154">In this section you will create fragments for the home and calendar views.</span></span>
 
-1. <span data-ttu-id="8b3da-155">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-155">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
+1. <span data-ttu-id="22a73-155">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-155">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
 
-1. <span data-ttu-id="8b3da-156">ファイル`fragment_home`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-156">Name the file `fragment_home` and change the **Root element** to `RelativeLayout`, then select **OK**.</span></span>
+1. <span data-ttu-id="22a73-156">ファイル`fragment_home`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-156">Name the file `fragment_home` and change the **Root element** to `RelativeLayout`, then select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-157">**Fragment_home .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-157">Open the **fragment_home.xml** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="22a73-157">**Fragment_home .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-157">Open the **fragment_home.xml** file and replace its contents with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -392,11 +392,11 @@
     </RelativeLayout>
     ```
 
-1. <span data-ttu-id="8b3da-158">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-158">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
+1. <span data-ttu-id="22a73-158">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-158">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
 
-1. <span data-ttu-id="8b3da-159">ファイル`fragment_calendar`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-159">Name the file `fragment_calendar` and change the **Root element** to `RelativeLayout`, then select **OK**.</span></span>
+1. <span data-ttu-id="22a73-159">ファイル`fragment_calendar`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-159">Name the file `fragment_calendar` and change the **Root element** to `RelativeLayout`, then select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-160">**Fragment_calendar .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-160">Open the **fragment_calendar.xml** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="22a73-160">**Fragment_calendar .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-160">Open the **fragment_calendar.xml** file and replace its contents with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -414,23 +414,23 @@
     </RelativeLayout>
     ```
 
-1. <span data-ttu-id="8b3da-161">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-161">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
+1. <span data-ttu-id="22a73-161">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-161">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
 
-1. <span data-ttu-id="8b3da-162">クラス`HomeFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-162">Name the class `HomeFragment` and set the **Superclass** to `androidx.fragment.app.Fragment`, then select **OK**.</span></span>
+1. <span data-ttu-id="22a73-162">クラス`HomeFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-162">Name the class `HomeFragment` and set the **Superclass** to `androidx.fragment.app.Fragment`, then select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-163">[**ホーム] フラグメント**ファイルを開き、そのコンテンツを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-163">Open the **HomeFragment** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="22a73-163">[**ホーム] フラグメント**ファイルを開き、そのコンテンツを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-163">Open the **HomeFragment** file and replace its contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
 
     import android.os.Bundle;
-    import android.support.annotation.NonNull;
-    import android.support.annotation.Nullable;
-    import android.support.v4.app.Fragment;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.TextView;
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.Fragment;
 
     public class HomeFragment extends Fragment {
         private static final String USER_NAME = "userName";
@@ -475,11 +475,11 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-164">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-164">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
+1. <span data-ttu-id="22a73-164">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-164">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
 
-1. <span data-ttu-id="8b3da-165">クラス`CalendarFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-165">Name the class `CalendarFragment` and set the **Superclass** to `androidx.fragment.app.Fragment`, then select **OK**.</span></span>
+1. <span data-ttu-id="22a73-165">クラス`CalendarFragment`の名前を指定し、**スーパー**クラスをに`androidx.fragment.app.Fragment`設定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-165">Name the class `CalendarFragment` and set the **Superclass** to `androidx.fragment.app.Fragment`, then select **OK**.</span></span>
 
-1. <span data-ttu-id="8b3da-166">**Calendarfragment**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-166">Open the **CalendarFragment** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="22a73-166">**Calendarfragment**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="22a73-166">Open the **CalendarFragment** file and replace its contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
@@ -502,7 +502,7 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-167">**Mainactivity .java**ファイルを開き、次の関数をクラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-167">Open the **MainActivity.java** file and add the the following functions to the class.</span></span>
+1. <span data-ttu-id="22a73-167">**Mainactivity .java**ファイルを開き、次の関数をクラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-167">Open the **MainActivity.java** file and add the the following functions to the class.</span></span>
 
     ```java
     // Load the "Home" fragment
@@ -533,7 +533,7 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-168">既存の `onNavigationItemSelected` 関数を、以下の関数で置換します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-168">Replace the existing `onNavigationItemSelected` function with the following.</span></span>
+1. <span data-ttu-id="22a73-168">既存の `onNavigationItemSelected` 関数を、以下の関数で置換します。</span><span class="sxs-lookup"><span data-stu-id="22a73-168">Replace the existing `onNavigationItemSelected` function with the following.</span></span>
 
     ```java
     @Override
@@ -560,7 +560,7 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-169">アプリの起動時にホームフラグメントを読み込む`onCreate`には、関数の最後に次のように追加します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-169">Add the following at the end of the `onCreate` function to load the home fragment when the app starts.</span></span>
+1. <span data-ttu-id="22a73-169">アプリの起動時にホームフラグメントを読み込む`onCreate`には、関数の最後に次のように追加します。</span><span class="sxs-lookup"><span data-stu-id="22a73-169">Add the following at the end of the `onCreate` function to load the home fragment when the app starts.</span></span>
 
     ```java
     // Load the home fragment by default on startup
@@ -569,10 +569,10 @@
     }
     ```
 
-1. <span data-ttu-id="8b3da-170">すべての変更を保存します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-170">Save all of your changes.</span></span>
+1. <span data-ttu-id="22a73-170">すべての変更を保存します。</span><span class="sxs-lookup"><span data-stu-id="22a73-170">Save all of your changes.</span></span>
 
-1. <span data-ttu-id="8b3da-171">[**実行**] メニューの [ **' App ' の実行**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="8b3da-171">On the **Run** menu, select **Run 'app'**.</span></span>
+1. <span data-ttu-id="22a73-171">[**実行**] メニューの [ **' App ' の実行**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="22a73-171">On the **Run** menu, select **Run 'app'**.</span></span>
 
-<span data-ttu-id="8b3da-172">アプリのメニューは、2つのフラグメント間を移動し、[**サインイン**] または [**サインアウト**] ボタンをタップすると、変更されます。</span><span class="sxs-lookup"><span data-stu-id="8b3da-172">The app's menu should work to navigate between the two fragments and change when you tap the **Sign in** or **Sign out** buttons.</span></span>
+<span data-ttu-id="22a73-172">アプリのメニューは、2つのフラグメント間を移動し、[**サインイン**] または [**サインアウト**] ボタンをタップすると、変更されます。</span><span class="sxs-lookup"><span data-stu-id="22a73-172">The app's menu should work to navigate between the two fragments and change when you tap the **Sign in** or **Sign out** buttons.</span></span>
 
 ![アプリケーションのスクリーンショット](./images/app-screens.png)

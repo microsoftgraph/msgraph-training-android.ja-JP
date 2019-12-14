@@ -1,16 +1,16 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="b7b46-101">この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-101">In this exercise you will extend the application from the previous exercise to support authentication with Azure AD.</span></span> <span data-ttu-id="b7b46-102">これは、Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。</span><span class="sxs-lookup"><span data-stu-id="b7b46-102">This is required to obtain the necessary OAuth access token to call the Microsoft Graph.</span></span> <span data-ttu-id="b7b46-103">これを行うには、 [Android 用 Microsoft 認証ライブラリ (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android)をアプリケーションに統合します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-103">To do this, you will integrate the [Microsoft Authentication Library (MSAL) for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) into the application.</span></span>
+<span data-ttu-id="51afe-101">この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。</span><span class="sxs-lookup"><span data-stu-id="51afe-101">In this exercise you will extend the application from the previous exercise to support authentication with Azure AD.</span></span> <span data-ttu-id="51afe-102">これは、Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。</span><span class="sxs-lookup"><span data-stu-id="51afe-102">This is required to obtain the necessary OAuth access token to call the Microsoft Graph.</span></span> <span data-ttu-id="51afe-103">これを行うには、 [Android 用 Microsoft 認証ライブラリ (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android)をアプリケーションに統合します。</span><span class="sxs-lookup"><span data-stu-id="51afe-103">To do this, you will integrate the [Microsoft Authentication Library (MSAL) for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) into the application.</span></span>
 
-1. <span data-ttu-id="b7b46-104">**Res**フォルダーを右クリックし、[**新規作成**]、[ **Android リソースディレクトリ**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-104">Right-click the **res** folder and select **New**, then **Android Resource Directory**.</span></span>
+1. <span data-ttu-id="51afe-104">**Res**フォルダーを右クリックし、[**新規作成**]、[ **Android リソースディレクトリ**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-104">Right-click the **res** folder and select **New**, then **Android Resource Directory**.</span></span>
 
-1. <span data-ttu-id="b7b46-105">リソースの**種類**をに`raw`変更し、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-105">Change the **Resource type** to `raw` and select **OK**.</span></span>
+1. <span data-ttu-id="51afe-105">リソースの**種類**をに`raw`変更し、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-105">Change the **Resource type** to `raw` and select **OK**.</span></span>
 
-1. <span data-ttu-id="b7b46-106">新しい**raw**フォルダーを右クリックし、[**新規**]、[**ファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-106">Right-click the new **raw** folder and select **New**, then **File**.</span></span>
+1. <span data-ttu-id="51afe-106">新しい**raw**フォルダーを右クリックし、[**新規**]、[**ファイル**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-106">Right-click the new **raw** folder and select **New**, then **File**.</span></span>
 
-1. <span data-ttu-id="b7b46-107">ファイル`msal_config.json`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-107">Name the file `msal_config.json` and select **OK**.</span></span>
+1. <span data-ttu-id="51afe-107">ファイル`msal_config.json`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-107">Name the file `msal_config.json` and select **OK**.</span></span>
 
-1. <span data-ttu-id="b7b46-108">次のものを**msal_config json**ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-108">Add the following to the **msal_config.json** file.</span></span>
+1. <span data-ttu-id="51afe-108">次のものを**msal_config json**ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-108">Add the following to the **msal_config.json** file.</span></span>
 
     ```json
     {
@@ -30,16 +30,16 @@
     }
     ```
 
-    <span data-ttu-id="b7b46-109">を`YOUR_APP_ID_HERE`アプリ登録のアプリ ID で置き換えて、プロジェクトの`YOUR_PACKAGE_NAME_HERE`パッケージ名に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-109">Replace `YOUR_APP_ID_HERE` with the app ID from your app registration, and replace `YOUR_PACKAGE_NAME_HERE` with your project's package name.</span></span>
+    <span data-ttu-id="51afe-109">を`YOUR_APP_ID_HERE`アプリ登録のアプリ ID で置き換えて、プロジェクトの`YOUR_PACKAGE_NAME_HERE`パッケージ名に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-109">Replace `YOUR_APP_ID_HERE` with the app ID from your app registration, and replace `YOUR_PACKAGE_NAME_HERE` with your project's package name.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="b7b46-110">Git などのソース管理を使用している場合は、この時点で、ソース管理`msal_config.json`からファイルを除外して、アプリ ID が誤ってリークしないようにすることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="b7b46-110">If you're using source control such as git, now would be a good time to exclude the `msal_config.json` file from source control to avoid inadvertently leaking your app ID.</span></span>
+> <span data-ttu-id="51afe-110">Git などのソース管理を使用している場合は、この時点で、ソース管理`msal_config.json`からファイルを除外して、アプリ ID が誤ってリークしないようにすることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="51afe-110">If you're using source control such as git, now would be a good time to exclude the `msal_config.json` file from source control to avoid inadvertently leaking your app ID.</span></span>
 
-## <a name="implement-sign-in"></a><span data-ttu-id="b7b46-111">サインインの実装</span><span class="sxs-lookup"><span data-stu-id="b7b46-111">Implement sign-in</span></span>
+## <a name="implement-sign-in"></a><span data-ttu-id="51afe-111">サインインの実装</span><span class="sxs-lookup"><span data-stu-id="51afe-111">Implement sign-in</span></span>
 
-<span data-ttu-id="b7b46-112">このセクションでは、マニフェストを更新して、MSAL がブラウザーを使用してユーザーを認証できるようにし、リダイレクト URI をアプリによって処理されるものとして登録し、認証ヘルパークラスを作成し、サインインしてサインアウトするためにアプリを更新します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-112">In this section you will update the manifest to allow MSAL to use a browser to authenticate the user, register your redirect URI as being handled by the app, create an authentication helper class, and update the app to sign in and sign out.</span></span>
+<span data-ttu-id="51afe-112">このセクションでは、マニフェストを更新して、MSAL がブラウザーを使用してユーザーを認証できるようにし、リダイレクト URI をアプリによって処理されるものとして登録し、認証ヘルパークラスを作成し、サインインしてサインアウトするためにアプリを更新します。</span><span class="sxs-lookup"><span data-stu-id="51afe-112">In this section you will update the manifest to allow MSAL to use a browser to authenticate the user, register your redirect URI as being handled by the app, create an authentication helper class, and update the app to sign in and sign out.</span></span>
 
-1. <span data-ttu-id="b7b46-113">[ **App/manifest** ] フォルダーを展開し、 **Androidmanifest**を開きます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-113">Expand the **app/manifests** folder and open **AndroidManifest.xml**.</span></span> <span data-ttu-id="b7b46-114">要素の`application`上に次の要素を追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-114">Add the following elements above the `application` element.</span></span>
+1. <span data-ttu-id="51afe-113">[ **App/manifest** ] フォルダーを展開し、 **Androidmanifest**を開きます。</span><span class="sxs-lookup"><span data-stu-id="51afe-113">Expand the **app/manifests** folder and open **AndroidManifest.xml**.</span></span> <span data-ttu-id="51afe-114">要素の`application`上に次の要素を追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-114">Add the following elements above the `application` element.</span></span>
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -47,9 +47,9 @@
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="b7b46-115">これらのアクセス許可は、MSAL ライブラリでユーザーを認証するために必要です。</span><span class="sxs-lookup"><span data-stu-id="b7b46-115">These permissions are required in order for the MSAL library to authenticate the user.</span></span>
+    > <span data-ttu-id="51afe-115">これらのアクセス許可は、MSAL ライブラリでユーザーを認証するために必要です。</span><span class="sxs-lookup"><span data-stu-id="51afe-115">These permissions are required in order for the MSAL library to authenticate the user.</span></span>
 
-1. <span data-ttu-id="b7b46-116">`application`要素内に次の要素を追加し、 `YOUR_PACKAGE_NAME_HERE`文字列をパッケージ名に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-116">Add the following element inside the `application` element, replacing the `YOUR_PACKAGE_NAME_HERE` string with your package name.</span></span>
+1. <span data-ttu-id="51afe-116">`application`要素内に次の要素を追加し、 `YOUR_PACKAGE_NAME_HERE`文字列をパッケージ名に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-116">Add the following element inside the `application` element, replacing the `YOUR_PACKAGE_NAME_HERE` string with your package name.</span></span>
 
     ```xml
     <!--Intent filter to capture authorization code response from the default browser on the
@@ -68,9 +68,9 @@
     </activity>
     ```
 
-1. <span data-ttu-id="b7b46-117">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-117">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span> <span data-ttu-id="b7b46-118">クラス`AuthenticationHelper`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-118">Name the class `AuthenticationHelper` and select **OK**.</span></span>
+1. <span data-ttu-id="51afe-117">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-117">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span> <span data-ttu-id="51afe-118">クラス`AuthenticationHelper`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-118">Name the class `AuthenticationHelper` and select **OK**.</span></span>
 
-1. <span data-ttu-id="b7b46-119">新しいファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-119">Open the new file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="51afe-119">新しいファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-119">Open the new file and replace its contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
@@ -151,7 +151,7 @@
     }
     ```
 
-1. <span data-ttu-id="b7b46-120">**Mainactivity**を開き、次`import`のステートメントを追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-120">Open **MainActivity** and add the following `import` statements.</span></span>
+1. <span data-ttu-id="51afe-120">**Mainactivity**を開き、次`import`のステートメントを追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-120">Open **MainActivity** and add the following `import` statements.</span></span>
 
     ```java
     import android.util.Log;
@@ -164,20 +164,20 @@
     import com.microsoft.identity.client.exception.MsalUiRequiredException;
     ```
 
-1. <span data-ttu-id="b7b46-121">次のメンバープロパティを`MainActivity`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-121">Add the following member property to the `MainActivity` class.</span></span>
+1. <span data-ttu-id="51afe-121">次のメンバープロパティを`MainActivity`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-121">Add the following member property to the `MainActivity` class.</span></span>
 
     ```java
     private AuthenticationHelper mAuthHelper = null;
     ```
 
-1. <span data-ttu-id="b7b46-122">次のものを`onCreate`関数の末尾に追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-122">Add the following to the end of the `onCreate` function.</span></span>
+1. <span data-ttu-id="51afe-122">次のものを`onCreate`関数の末尾に追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-122">Add the following to the end of the `onCreate` function.</span></span>
 
     ```java
     // Get the authentication helper
     mAuthHelper = AuthenticationHelper.getInstance(getApplicationContext());
     ```
 
-1. <span data-ttu-id="b7b46-123">次の関数を`MainActivity`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-123">Add the following functions to the `MainActivity` class.</span></span>
+1. <span data-ttu-id="51afe-123">次の関数を`MainActivity`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-123">Add the following functions to the `MainActivity` class.</span></span>
 
     ```java
     // Silently sign in - used if there is already a
@@ -238,7 +238,7 @@
     }
     ```
 
-1. <span data-ttu-id="b7b46-124">既存`signIn`のと`signOut`関数を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-124">Replace the existing `signIn` and `signOut` functions with the following.</span></span>
+1. <span data-ttu-id="51afe-124">既存`signIn`のと`signOut`関数を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-124">Replace the existing `signIn` and `signOut` functions with the following.</span></span>
 
     ```java
     private void signIn() {
@@ -258,25 +258,25 @@
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="b7b46-125">このメソッドは`signIn` 、最初に msal キャッシュに既にユーザーアカウントがあるかどうかを確認します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-125">Notice that the `signIn` method first checks if there is a user account already in the MSAL cache.</span></span> <span data-ttu-id="b7b46-126">存在する場合は、トークンを自動的に更新しようとして、アプリを起動するたびにユーザーに確認を求める必要がなくなります。</span><span class="sxs-lookup"><span data-stu-id="b7b46-126">If there is, it attempts to refresh its tokens silently, avoiding having to prompt the user every time they launch the app.</span></span>
+    > <span data-ttu-id="51afe-125">`signIn`メソッドがサイレントサインイン (via `doSilentSignIn`) を実行することに注意してください。</span><span class="sxs-lookup"><span data-stu-id="51afe-125">Notice that the `signIn` method does a silent sign-in (via `doSilentSignIn`).</span></span> <span data-ttu-id="51afe-126">このメソッドのコールバックは、無音が失敗した場合に対話型サインインを行います。</span><span class="sxs-lookup"><span data-stu-id="51afe-126">The callback for this method will do an interactive sign-in if the silent one fails.</span></span> <span data-ttu-id="51afe-127">これにより、アプリを起動するたびにユーザーにメッセージを表示する必要がなくなります。</span><span class="sxs-lookup"><span data-stu-id="51afe-127">This avoids having to prompt the user every time they launch the app.</span></span>
 
-1. <span data-ttu-id="b7b46-127">変更内容を保存し、アプリケーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-127">Save your changes and run the app.</span></span>
+1. <span data-ttu-id="51afe-128">変更内容を保存し、アプリケーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="51afe-128">Save your changes and run the app.</span></span>
 
-1. <span data-ttu-id="b7b46-128">[**サインイン**] メニュー項目をタップすると、ブラウザーが Azure AD ログインページに表示されます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-128">When you tap the **Sign in** menu item, a browser opens to the Azure AD login page.</span></span> <span data-ttu-id="b7b46-129">自分のアカウントでサインインします。</span><span class="sxs-lookup"><span data-stu-id="b7b46-129">Sign in with your account.</span></span>
+1. <span data-ttu-id="51afe-129">[**サインイン**] メニュー項目をタップすると、ブラウザーが Azure AD ログインページに表示されます。</span><span class="sxs-lookup"><span data-stu-id="51afe-129">When you tap the **Sign in** menu item, a browser opens to the Azure AD login page.</span></span> <span data-ttu-id="51afe-130">自分のアカウントでサインインします。</span><span class="sxs-lookup"><span data-stu-id="51afe-130">Sign in with your account.</span></span>
 
-<span data-ttu-id="b7b46-130">アプリが再開されると、Android Studio のデバッグログに、アクセストークンが出力されていることがわかります。</span><span class="sxs-lookup"><span data-stu-id="b7b46-130">Once the app resumes, you should see an access token printed in the debug log in Android Studio.</span></span>
+<span data-ttu-id="51afe-131">アプリが再開されると、Android Studio のデバッグログに、アクセストークンが出力されていることがわかります。</span><span class="sxs-lookup"><span data-stu-id="51afe-131">Once the app resumes, you should see an access token printed in the debug log in Android Studio.</span></span>
 
 ![Android Studio の Logcat ウィンドウのスクリーンショット](./images/debugger-access-token.png)
 
-## <a name="get-user-details"></a><span data-ttu-id="b7b46-132">ユーザーの詳細を取得する</span><span class="sxs-lookup"><span data-stu-id="b7b46-132">Get user details</span></span>
+## <a name="get-user-details"></a><span data-ttu-id="51afe-133">ユーザーの詳細を取得する</span><span class="sxs-lookup"><span data-stu-id="51afe-133">Get user details</span></span>
 
-<span data-ttu-id="b7b46-133">このセクションでは、Microsoft Graph へのすべての呼び出しを保持するヘルパークラスを作成し、 `MainActivity`この新しいクラスを使用してログインしたユーザーを取得するようにクラスを更新します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-133">In this section you will create a helper class to hold all of the calls to Microsoft Graph and update the `MainActivity` class to use this new class to get the logged-in user.</span></span>
+<span data-ttu-id="51afe-134">このセクションでは、Microsoft Graph へのすべての呼び出しを保持するヘルパークラスを作成し、 `MainActivity`この新しいクラスを使用してログインしたユーザーを取得するようにクラスを更新します。</span><span class="sxs-lookup"><span data-stu-id="51afe-134">In this section you will create a helper class to hold all of the calls to Microsoft Graph and update the `MainActivity` class to use this new class to get the logged-in user.</span></span>
 
-1. <span data-ttu-id="b7b46-134">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-134">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
+1. <span data-ttu-id="51afe-135">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-135">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
 
-1. <span data-ttu-id="b7b46-135">クラス`GraphHelper`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-135">Name the class `GraphHelper` and select **OK**.</span></span>
+1. <span data-ttu-id="51afe-136">クラス`GraphHelper`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="51afe-136">Name the class `GraphHelper` and select **OK**.</span></span>
 
-1. <span data-ttu-id="b7b46-136">新しいファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-136">Open the new file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="51afe-137">新しいファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-137">Open the new file and replace its contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
@@ -326,12 +326,12 @@
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="b7b46-137">このコードの内容を検討してください。</span><span class="sxs-lookup"><span data-stu-id="b7b46-137">Consider what this code does.</span></span>
+    > <span data-ttu-id="51afe-138">このコードの内容を検討してください。</span><span class="sxs-lookup"><span data-stu-id="51afe-138">Consider what this code does.</span></span>
     >
-    > - <span data-ttu-id="b7b46-138">インターフェイスを`IAuthenticationProvider`実装して、送信 HTTP 要求の`Authorization`ヘッダーにアクセストークンを挿入します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-138">It implements the `IAuthenticationProvider` interface to insert the access token in the `Authorization` header on outgoing HTTP requests.</span></span>
-    > - <span data-ttu-id="b7b46-139">Graph エンドポイント`getUser`からログインユーザーの情報を取得する関数が公開されています。 `/me`</span><span class="sxs-lookup"><span data-stu-id="b7b46-139">It exposes a `getUser` function to get the logged-in user's information from the `/me` Graph endpoint.</span></span>
+    > - <span data-ttu-id="51afe-139">インターフェイスを`IAuthenticationProvider`実装して、送信 HTTP 要求の`Authorization`ヘッダーにアクセストークンを挿入します。</span><span class="sxs-lookup"><span data-stu-id="51afe-139">It implements the `IAuthenticationProvider` interface to insert the access token in the `Authorization` header on outgoing HTTP requests.</span></span>
+    > - <span data-ttu-id="51afe-140">Graph エンドポイント`getUser`からログインユーザーの情報を取得する関数が公開されています。 `/me`</span><span class="sxs-lookup"><span data-stu-id="51afe-140">It exposes a `getUser` function to get the logged-in user's information from the `/me` Graph endpoint.</span></span>
 
-1. <span data-ttu-id="b7b46-140">次`import`のステートメントを**mainactivity**ファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-140">Add the following `import` statements to the top of the **MainActivity** file.</span></span>
+1. <span data-ttu-id="51afe-141">次`import`のステートメントを**mainactivity**ファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="51afe-141">Add the following `import` statements to the top of the **MainActivity** file.</span></span>
 
     ```java
     import com.microsoft.graph.concurrency.ICallback;
@@ -340,7 +340,7 @@
     import com.microsoft.graph.models.extensions.User;
     ```
 
-1. <span data-ttu-id="b7b46-141">次の関数を`MainActivity`クラスに追加して、 `ICallback` Graph 呼び出しのを生成します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-141">Add the following function to the `MainActivity` class to generate an `ICallback` for the Graph call.</span></span>
+1. <span data-ttu-id="51afe-142">次の関数を`MainActivity`クラスに追加して、 `ICallback` Graph 呼び出しのを生成します。</span><span class="sxs-lookup"><span data-stu-id="51afe-142">Add the following function to the `MainActivity` class to generate an `ICallback` for the Graph call.</span></span>
 
     ```java
     private ICallback<User> getUserCallback() {
@@ -384,7 +384,7 @@
     }
     ```
 
-1. <span data-ttu-id="b7b46-142">ユーザー名と電子メールを設定する次の行を削除します。</span><span class="sxs-lookup"><span data-stu-id="b7b46-142">Remove the following lines that set the user name and email:</span></span>
+1. <span data-ttu-id="51afe-143">ユーザー名と電子メールを設定する次の行を削除します。</span><span class="sxs-lookup"><span data-stu-id="51afe-143">Remove the following lines that set the user name and email:</span></span>
 
     ```java
     // For testing
@@ -392,11 +392,11 @@
     mUserEmail = "meganb@contoso.com";
     ```
 
-1. <span data-ttu-id="b7b46-143">の`onSuccess` `AuthenticationCallback`上書きを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-143">Replace the `onSuccess` override in the `AuthenticationCallback` with the following.</span></span>
+1. <span data-ttu-id="51afe-144">の`onSuccess` `AuthenticationCallback`上書きを次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="51afe-144">Replace the `onSuccess` override in the `AuthenticationCallback` with the following.</span></span>
 
     ```java
     @Override
-    public void onSuccess(AuthenticationResult authenticationResult) {
+    public void onSuccess(IAuthenticationResult authenticationResult) {
         // Log the token for debug purposes
         String accessToken = authenticationResult.getAccessToken();
         Log.d("AUTH", String.format("Access token: %s", accessToken));
@@ -407,4 +407,4 @@
     }
     ```
 
-<span data-ttu-id="b7b46-144">変更を保存してすぐにアプリを実行すると、サインイン後にユーザーの表示名と電子メールアドレスで UI が更新されます。</span><span class="sxs-lookup"><span data-stu-id="b7b46-144">If you save your changes and run the app now, after sign-in the UI is updated with the user's display name and email address.</span></span>
+<span data-ttu-id="51afe-145">変更を保存してすぐにアプリを実行すると、サインイン後にユーザーの表示名と電子メールアドレスで UI が更新されます。</span><span class="sxs-lookup"><span data-stu-id="51afe-145">If you save your changes and run the app now, after sign-in the UI is updated with the user's display name and email address.</span></span>

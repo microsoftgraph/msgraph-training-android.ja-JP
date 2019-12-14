@@ -1,12 +1,12 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="f976d-101">この演習では、Microsoft Graph をアプリケーションに組み込みます。</span><span class="sxs-lookup"><span data-stu-id="f976d-101">In this exercise you will incorporate the Microsoft Graph into the application.</span></span> <span data-ttu-id="f976d-102">このアプリケーションでは、microsoft graph [SDK For Java](https://github.com/microsoftgraph/msgraph-sdk-java)を使用して microsoft graph を呼び出すことにします。</span><span class="sxs-lookup"><span data-stu-id="f976d-102">For this application, you will use the [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to make calls to Microsoft Graph.</span></span>
+<span data-ttu-id="c39e5-101">この演習では、Microsoft Graph をアプリケーションに組み込みます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-101">In this exercise you will incorporate the Microsoft Graph into the application.</span></span> <span data-ttu-id="c39e5-102">このアプリケーションでは、microsoft graph [SDK For Java](https://github.com/microsoftgraph/msgraph-sdk-java)を使用して microsoft graph を呼び出すことにします。</span><span class="sxs-lookup"><span data-stu-id="c39e5-102">For this application, you will use the [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to make calls to Microsoft Graph.</span></span>
 
-## <a name="get-calendar-events-from-outlook"></a><span data-ttu-id="f976d-103">Outlook から予定表のイベントを取得する</span><span class="sxs-lookup"><span data-stu-id="f976d-103">Get calendar events from Outlook</span></span>
+## <a name="get-calendar-events-from-outlook"></a><span data-ttu-id="c39e5-103">Outlook から予定表のイベントを取得する</span><span class="sxs-lookup"><span data-stu-id="c39e5-103">Get calendar events from Outlook</span></span>
 
-<span data-ttu-id="f976d-104">このセクションでは、 `GraphHelper`クラスを拡張して、ユーザーのイベントを取得する関数を追加`CalendarFragment`し、これらの新しい関数を使用するように更新します。</span><span class="sxs-lookup"><span data-stu-id="f976d-104">In this section you will extend the `GraphHelper` class to add a function to get the user's events and update `CalendarFragment` to use these new functions.</span></span>
+<span data-ttu-id="c39e5-104">このセクションでは、 `GraphHelper`クラスを拡張して、ユーザーのイベントを取得する関数を追加`CalendarFragment`し、これらの新しい関数を使用するように更新します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-104">In this section you will extend the `GraphHelper` class to add a function to get the user's events and update `CalendarFragment` to use these new functions.</span></span>
 
-1. <span data-ttu-id="f976d-105">**Graphhelper**ファイルを開き、次`import`のステートメントをファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-105">Open the **GraphHelper** file and add the following `import` statements to the top of the file.</span></span>
+1. <span data-ttu-id="c39e5-105">**Graphhelper**ファイルを開き、次`import`のステートメントをファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-105">Open the **GraphHelper** file and add the following `import` statements to the top of the file.</span></span>
 
     ```java
     import com.microsoft.graph.options.Option;
@@ -16,7 +16,7 @@
     import java.util.List;
     ```
 
-1. <span data-ttu-id="f976d-106">次の関数を`GraphHelper`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-106">Add the following functions to the `GraphHelper` class.</span></span>
+1. <span data-ttu-id="c39e5-106">次の関数を`GraphHelper`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-106">Add the following functions to the `GraphHelper` class.</span></span>
 
     ```java
     public void getEvents(String accessToken, ICallback<IEventCollectionPage> callback) {
@@ -42,13 +42,13 @@
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="f976d-107">のコードに`getEvents`ついて検討します。</span><span class="sxs-lookup"><span data-stu-id="f976d-107">Consider what the code in `getEvents` is doing.</span></span>
+    > <span data-ttu-id="c39e5-107">のコードに`getEvents`ついて検討します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-107">Consider what the code in `getEvents` is doing.</span></span>
     >
-    > - <span data-ttu-id="f976d-108">呼び出し先の URL は`/v1.0/me/events`になります。</span><span class="sxs-lookup"><span data-stu-id="f976d-108">The URL that will be called is `/v1.0/me/events`.</span></span>
-    > - <span data-ttu-id="f976d-109">関数`select`は、各イベントに対して返されるフィールドを、ビューが実際に使用する > だけに制限します。</span><span class="sxs-lookup"><span data-stu-id="f976d-109">The `select` function limits the fields returned for each events to just > those the view will actually use.</span></span>
-    > - <span data-ttu-id="f976d-110">名前`QueryOption`付き`orderby`を使用して、作成された日付と時刻で結果を並べ替え、最新のアイテムを最初に表示します。</span><span class="sxs-lookup"><span data-stu-id="f976d-110">The `QueryOption` named `orderby` is used to sort the results by the date and time they were created, with the most recent item being first.</span></span>
+    > - <span data-ttu-id="c39e5-108">呼び出し先の URL は`/v1.0/me/events`になります。</span><span class="sxs-lookup"><span data-stu-id="c39e5-108">The URL that will be called is `/v1.0/me/events`.</span></span>
+    > - <span data-ttu-id="c39e5-109">関数`select`は、各イベントに対して返されるフィールドを、ビューが実際に使用するものだけに制限します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-109">The `select` function limits the fields returned for each events to just those the view will actually use.</span></span>
+    > - <span data-ttu-id="c39e5-110">名前`QueryOption`付き`orderby`を使用して、作成された日付と時刻で結果を並べ替え、最新のアイテムを最初に表示します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-110">The `QueryOption` named `orderby` is used to sort the results by the date and time they were created, with the most recent item being first.</span></span>
 
-1. <span data-ttu-id="f976d-111">次`import`のステートメントを**calendarfragment**ファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-111">Add the following `import` statements to the top of the **CalendarFragment** file.</span></span>
+1. <span data-ttu-id="c39e5-111">次`import`のステートメントを**calendarfragment**ファイルの先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-111">Add the following `import` statements to the top of the **CalendarFragment** file.</span></span>
 
     ```java
     import android.util.Log;
@@ -64,14 +64,14 @@
     import java.util.List;
     ```
 
-1. <span data-ttu-id="f976d-112">次のメンバーを`CalendarFragment`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-112">Add the following members to the `CalendarFragment` class.</span></span>
+1. <span data-ttu-id="c39e5-112">次のメンバーを`CalendarFragment`クラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-112">Add the following members to the `CalendarFragment` class.</span></span>
 
     ```java
     private List<Event> mEventList = null;
     private ProgressBar mProgress = null;
     ```
 
-1. <span data-ttu-id="f976d-113">次の関数を`CalendarFragment`クラスに追加して、進行状況バーの表示と非表示を切り替え、で`getEvents` `GraphHelper`の関数のコールバックを提供します。</span><span class="sxs-lookup"><span data-stu-id="f976d-113">Add the following functions to the `CalendarFragment` class to hide and show the progress bar, and to provide a callback for the `getEvents` function in `GraphHelper`.</span></span>
+1. <span data-ttu-id="c39e5-113">次の関数を`CalendarFragment`クラスに追加して、進行状況バーの表示と非表示を切り替え、で`getEvents` `GraphHelper`の関数のコールバックを提供します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-113">Add the following functions to the `CalendarFragment` class to hide and show the progress bar, and to provide a callback for the `getEvents` function in `GraphHelper`.</span></span>
 
     ```java
     private void showProgressBar() {
@@ -114,7 +114,7 @@
     }
     ```
 
-1. <span data-ttu-id="f976d-114">Microsoft Graph `onCreate`からユーザーの`CalendarFragment`イベントを取得するには、クラスの関数をオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="f976d-114">Override the `onCreate` function in the `CalendarFragment` class to get the user's events from Microsoft Graph.</span></span>
+1. <span data-ttu-id="c39e5-114">Microsoft Graph `onCreate`からユーザーの`CalendarFragment`イベントを取得するには、クラスの関数をオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="c39e5-114">Override the `onCreate` function in the `CalendarFragment` class to get the user's events from Microsoft Graph.</span></span>
 
     ```java
     @Override
@@ -150,17 +150,17 @@
     }
     ```
 
-<span data-ttu-id="f976d-115">このコードで行われていることに注目してください。</span><span class="sxs-lookup"><span data-stu-id="f976d-115">Notice what this code does.</span></span> <span data-ttu-id="f976d-116">最初に、アクセス`acquireTokenSilently`トークンを取得するために呼び出します。</span><span class="sxs-lookup"><span data-stu-id="f976d-116">First, it calls `acquireTokenSilently` to get the access token.</span></span> <span data-ttu-id="f976d-117">アクセストークンが必要になるたびに、このメソッドを呼び出すことをお勧めします。これは、MSAL のキャッシュとトークンの更新機能を活用するため、ベストプラクティスです。</span><span class="sxs-lookup"><span data-stu-id="f976d-117">Calling this method every time an access token is needed is a best practice because it takes advantage of MSAL's caching and token refresh abilities.</span></span> <span data-ttu-id="f976d-118">内部的に、MSAL はキャッシュされたトークンをチェックし、有効期限が切れているかどうかを確認します。</span><span class="sxs-lookup"><span data-stu-id="f976d-118">Internally, MSAL checks for a cached token, then checks if it is expired.</span></span> <span data-ttu-id="f976d-119">トークンが存在し、期限切れになっていない場合は、キャッシュされたトークンを返します。</span><span class="sxs-lookup"><span data-stu-id="f976d-119">If the token is present and not expired, it just returns the cached token.</span></span> <span data-ttu-id="f976d-120">有効期限が切れている場合は、トークンを返す前に更新を試行します。</span><span class="sxs-lookup"><span data-stu-id="f976d-120">If it is expired, it attempts to refresh the token before returning it.</span></span>
+<span data-ttu-id="c39e5-115">このコードで行われていることに注目してください。</span><span class="sxs-lookup"><span data-stu-id="c39e5-115">Notice what this code does.</span></span> <span data-ttu-id="c39e5-116">最初に、アクセス`acquireTokenSilently`トークンを取得するために呼び出します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-116">First, it calls `acquireTokenSilently` to get the access token.</span></span> <span data-ttu-id="c39e5-117">アクセストークンが必要になるたびに、このメソッドを呼び出すことをお勧めします。これは、MSAL のキャッシュとトークンの更新機能を活用するため、ベストプラクティスです。</span><span class="sxs-lookup"><span data-stu-id="c39e5-117">Calling this method every time an access token is needed is a best practice because it takes advantage of MSAL's caching and token refresh abilities.</span></span> <span data-ttu-id="c39e5-118">内部的に、MSAL はキャッシュされたトークンをチェックし、有効期限が切れているかどうかを確認します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-118">Internally, MSAL checks for a cached token, then checks if it is expired.</span></span> <span data-ttu-id="c39e5-119">トークンが存在し、期限切れになっていない場合は、キャッシュされたトークンを返します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-119">If the token is present and not expired, it just returns the cached token.</span></span> <span data-ttu-id="c39e5-120">有効期限が切れている場合は、トークンを返す前に更新を試行します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-120">If it is expired, it attempts to refresh the token before returning it.</span></span>
 
-<span data-ttu-id="f976d-121">トークンが取得されると、コードは`getEvents`メソッドを呼び出してユーザーのイベントを取得します。</span><span class="sxs-lookup"><span data-stu-id="f976d-121">Once the token is retrieved, the code then calls the `getEvents` method to get the user's events.</span></span>
+<span data-ttu-id="c39e5-121">トークンが取得されると、コードは`getEvents`メソッドを呼び出してユーザーのイベントを取得します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-121">Once the token is retrieved, the code then calls the `getEvents` method to get the user's events.</span></span>
 
-<span data-ttu-id="f976d-122">これで、アプリを実行し、サインインすると、メニューの [**予定表**] ナビゲーション項目をタップできるようになります。</span><span class="sxs-lookup"><span data-stu-id="f976d-122">You can now run the app, sign in, and tap the **Calendar** navigation item in the menu.</span></span> <span data-ttu-id="f976d-123">Android Studio のデバッグログに、イベントの JSON ダンプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="f976d-123">You should see a JSON dump of the events in the debug log in Android Studio.</span></span>
+<span data-ttu-id="c39e5-122">これで、アプリを実行し、サインインすると、メニューの [**予定表**] ナビゲーション項目をタップできるようになります。</span><span class="sxs-lookup"><span data-stu-id="c39e5-122">You can now run the app, sign in, and tap the **Calendar** navigation item in the menu.</span></span> <span data-ttu-id="c39e5-123">Android Studio のデバッグログに、イベントの JSON ダンプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-123">You should see a JSON dump of the events in the debug log in Android Studio.</span></span>
 
-## <a name="display-the-results"></a><span data-ttu-id="f976d-124">結果を表示する</span><span class="sxs-lookup"><span data-stu-id="f976d-124">Display the results</span></span>
+## <a name="display-the-results"></a><span data-ttu-id="c39e5-124">結果を表示する</span><span class="sxs-lookup"><span data-stu-id="c39e5-124">Display the results</span></span>
 
-<span data-ttu-id="f976d-125">これで、JSON ダンプを、ユーザーにわかりやすい方法で結果を表示するためのものに置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="f976d-125">Now you can replace the JSON dump with something to display the results in a user-friendly manner.</span></span> <span data-ttu-id="f976d-126">このセクションでは、予定表フラグメント`ListView`にを追加し、 `ListView`の各アイテムに対してレイアウトを作成します。また、それぞれ`ListView` `Event`のフィールドをビューで適切`TextView`にマップするためのカスタムリストアダプターを作成します。</span><span class="sxs-lookup"><span data-stu-id="f976d-126">In this section, you will add a `ListView` to the calendar fragment, create a layout for each item in the `ListView`, and create a custom list adapter for the `ListView` that maps the fields of each `Event` to the appropriate `TextView` in the view.</span></span>
+<span data-ttu-id="c39e5-125">これで、JSON ダンプを、ユーザーにわかりやすい方法で結果を表示するためのものに置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-125">Now you can replace the JSON dump with something to display the results in a user-friendly manner.</span></span> <span data-ttu-id="c39e5-126">このセクションでは、予定表フラグメント`ListView`にを追加し、 `ListView`の各アイテムに対してレイアウトを作成します。また、それぞれ`ListView` `Event`のフィールドをビューで適切`TextView`にマップするためのカスタムリストアダプターを作成します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-126">In this section, you will add a `ListView` to the calendar fragment, create a layout for each item in the `ListView`, and create a custom list adapter for the `ListView` that maps the fields of each `Event` to the appropriate `TextView` in the view.</span></span>
 
-1. <span data-ttu-id="f976d-127">`TextView` **App/res/layout/fragment_calendar .xml**のをと置き換え`ListView`ます。</span><span class="sxs-lookup"><span data-stu-id="f976d-127">Replace the `TextView` in **app/res/layout/fragment_calendar.xml** with a `ListView`.</span></span>
+1. <span data-ttu-id="c39e5-127">`TextView` **App/res/layout/fragment_calendar .xml**のをと置き換え`ListView`ます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-127">Replace the `TextView` in **app/res/layout/fragment_calendar.xml** with a `ListView`.</span></span>
 
     ```xml
     <ListView
@@ -171,11 +171,11 @@
         android:dividerHeight="1dp" />
     ```
 
-1. <span data-ttu-id="f976d-128">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="f976d-128">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
+1. <span data-ttu-id="c39e5-128">**App/res/layout**フォルダーを右クリックし、[**新規作成**]、[**リソースファイルのレイアウト**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-128">Right-click the **app/res/layout** folder and select **New**, then **Layout resource file**.</span></span>
 
-1. <span data-ttu-id="f976d-129">ファイル`event_list_item`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="f976d-129">Name the file `event_list_item`, change the **Root element** to `RelativeLayout`, and select **OK**.</span></span>
+1. <span data-ttu-id="c39e5-129">ファイル`event_list_item`に名前を指定し、**ルート要素**をに`RelativeLayout`変更して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-129">Name the file `event_list_item`, change the **Root element** to `RelativeLayout`, and select **OK**.</span></span>
 
-1. <span data-ttu-id="f976d-130">**Event_list_item .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f976d-130">Open the **event_list_item.xml** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="c39e5-130">**Event_list_item .xml**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-130">Open the **event_list_item.xml** file and replace its contents with the following.</span></span>
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -239,11 +239,11 @@
     </RelativeLayout>
     ```
 
-1. <span data-ttu-id="f976d-131">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="f976d-131">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
+1. <span data-ttu-id="c39e5-131">[ **App/java/com/com. 例**] のチュートリアルフォルダーを右クリックし、[**新規**]、[ **java クラス**] の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-131">Right-click the **app/java/com.example.graphtutorial** folder and select **New**, then **Java Class**.</span></span>
 
-1. <span data-ttu-id="f976d-132">クラス`EventListAdapter`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="f976d-132">Name the class `EventListAdapter` and select **OK**.</span></span>
+1. <span data-ttu-id="c39e5-132">クラス`EventListAdapter`の名前を指定して、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-132">Name the class `EventListAdapter` and select **OK**.</span></span>
 
-1. <span data-ttu-id="f976d-133">**Eventlistadapter**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f976d-133">Open the **EventListAdapter** file and replace its contents with the following.</span></span>
+1. <span data-ttu-id="c39e5-133">**Eventlistadapter**ファイルを開き、その内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-133">Open the **EventListAdapter** file and replace its contents with the following.</span></span>
 
     ```java
     package com.example.graphtutorial;
@@ -330,7 +330,7 @@
     }
     ```
 
-1. <span data-ttu-id="f976d-134">**Calendarfragment**クラスを開き、次の関数をクラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-134">Open the **CalendarFragment** class and add the following function to the class.</span></span>
+1. <span data-ttu-id="c39e5-134">**Calendarfragment**クラスを開き、次の関数をクラスに追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-134">Open the **CalendarFragment** class and add the following function to the class.</span></span>
 
     ```java
     private void addEventsToList() {
@@ -348,12 +348,12 @@
     }
     ```
 
-1. <span data-ttu-id="f976d-135">行の`success` `mEventList = iEventCollectionPage.getCurrentPage();`後に、次のコード行をオーバーライドに追加します。</span><span class="sxs-lookup"><span data-stu-id="f976d-135">Add the following line of code in the `success` override after the `mEventList = iEventCollectionPage.getCurrentPage();` line.</span></span>
+1. <span data-ttu-id="c39e5-135">行の`success` `mEventList = iEventCollectionPage.getCurrentPage();`後に、次のコード行をオーバーライドに追加します。</span><span class="sxs-lookup"><span data-stu-id="c39e5-135">Add the following line of code in the `success` override after the `mEventList = iEventCollectionPage.getCurrentPage();` line.</span></span>
 
     ```java
     addEventsToList();
     ```
 
-1. <span data-ttu-id="f976d-136">アプリを実行し、サインインして、**予定表**のナビゲーションアイテムをタップします。</span><span class="sxs-lookup"><span data-stu-id="f976d-136">Run the app, sign in, and tap the **Calendar** navigation item.</span></span> <span data-ttu-id="f976d-137">イベントの一覧が表示されます。</span><span class="sxs-lookup"><span data-stu-id="f976d-137">You should see the list of events.</span></span>
+1. <span data-ttu-id="c39e5-136">アプリを実行し、サインインして、**予定表**のナビゲーションアイテムをタップします。</span><span class="sxs-lookup"><span data-stu-id="c39e5-136">Run the app, sign in, and tap the **Calendar** navigation item.</span></span> <span data-ttu-id="c39e5-137">イベントの一覧が表示されます。</span><span class="sxs-lookup"><span data-stu-id="c39e5-137">You should see the list of events.</span></span>
 
     ![イベントの表のスクリーンショット](./images/calendar-list.png)
