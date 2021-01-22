@@ -1,27 +1,22 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-<span data-ttu-id="8364e-101">このチュートリアルでは、Microsoft Graph API を使用してユーザーの予定表情報を取得する Android アプリを作成する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="8364e-101">This tutorial teaches you how to build an Android app that uses the Microsoft Graph API to retrieve calendar information for a user.</span></span>
+<span data-ttu-id="eab60-101">このチュートリアルでは、Microsoft Graph API を使用してユーザーの予定表情報を取得する Android アプリを構築する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="eab60-101">This tutorial teaches you how to build an Android app that uses the Microsoft Graph API to retrieve calendar information for a user.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="8364e-102">完成したチュートリアルをダウンロードするだけで済む場合は、 [GitHub リポジトリ](https://github.com/microsoftgraph/msgraph-training-android)をダウンロードするか、クローンを作成できます。</span><span class="sxs-lookup"><span data-stu-id="8364e-102">If you prefer to just download the completed tutorial, you can download or clone the [GitHub repository](https://github.com/microsoftgraph/msgraph-training-android).</span></span>
+> <span data-ttu-id="eab60-102">完成したチュートリアルをダウンロードするだけの場合は [、GitHub](https://github.com/microsoftgraph/msgraph-training-android)リポジトリをダウンロードまたは複製できます。</span><span class="sxs-lookup"><span data-stu-id="eab60-102">If you prefer to just download the completed tutorial, you can download or clone the [GitHub repository](https://github.com/microsoftgraph/msgraph-training-android).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="8364e-103">前提条件</span><span class="sxs-lookup"><span data-stu-id="8364e-103">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="eab60-103">前提条件</span><span class="sxs-lookup"><span data-stu-id="eab60-103">Prerequisites</span></span>
 
-<span data-ttu-id="8364e-104">このチュートリアルを開始する前に、開発用のコンピューターに[Android Studio](https://developer.android.com/studio/)がインストールされている必要があります。</span><span class="sxs-lookup"><span data-stu-id="8364e-104">Before you start this tutorial, you should have [Android Studio](https://developer.android.com/studio/) installed on your development machine.</span></span>
+<span data-ttu-id="eab60-104">このチュートリアルを開始する前に、開発用コンピューター [に Android Studio](https://developer.android.com/studio/) がインストールされている必要があります。</span><span class="sxs-lookup"><span data-stu-id="eab60-104">Before you start this tutorial, you should have [Android Studio](https://developer.android.com/studio/) installed on your development machine.</span></span>
+
+<span data-ttu-id="eab60-105">また、メールボックスを持つ個人用の Microsoft アカウントが Outlook.com Microsoft の仕事用アカウントまたは学校アカウントである必要があります。</span><span class="sxs-lookup"><span data-stu-id="eab60-105">You should also have either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account.</span></span> <span data-ttu-id="eab60-106">Microsoft アカウントをお持ちない場合は、無料アカウントを取得するためのオプションが 2 つ提供されています。</span><span class="sxs-lookup"><span data-stu-id="eab60-106">If you don't have a Microsoft account, there are a couple of options to get a free account:</span></span>
+
+- <span data-ttu-id="eab60-107">新しい [個人用 Microsoft アカウントにサインアップできます](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1)。</span><span class="sxs-lookup"><span data-stu-id="eab60-107">You can [sign up for a new personal Microsoft account](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1).</span></span>
+- <span data-ttu-id="eab60-108">Office [365 開発者プログラムにサインアップして、365](https://developer.microsoft.com/office/dev-program) サブスクリプションを無料Office取得できます。</span><span class="sxs-lookup"><span data-stu-id="eab60-108">You can [sign up for the Office 365 Developer Program](https://developer.microsoft.com/office/dev-program) to get a free Office 365 subscription.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="8364e-105">このチュートリアルは、Android Studio version 3.5.1 および Android 10.0 SDK で記述されています。</span><span class="sxs-lookup"><span data-stu-id="8364e-105">This tutorial was written with Android Studio version 3.5.1 and the Android 10.0 SDK.</span></span> <span data-ttu-id="8364e-106">このガイドの手順は、他のバージョンでは動作しますが、テストされていません。</span><span class="sxs-lookup"><span data-stu-id="8364e-106">The steps in this guide may work with other versions, but that has not been tested.</span></span>
+> <span data-ttu-id="eab60-109">このチュートリアルは、Android Studio バージョン 4.1.1 と Android 10.0 SDK で記述されています。</span><span class="sxs-lookup"><span data-stu-id="eab60-109">This tutorial was written with Android Studio version 4.1.1 and the Android 10.0 SDK.</span></span> <span data-ttu-id="eab60-110">このガイドの手順は他のバージョンでも動作する可能性がありますが、テストは行ってはいではありません。</span><span class="sxs-lookup"><span data-stu-id="eab60-110">The steps in this guide may work with other versions, but that has not been tested.</span></span>
 
-## <a name="watch-the-tutorial"></a><span data-ttu-id="8364e-107">チュートリアルを見る</span><span class="sxs-lookup"><span data-stu-id="8364e-107">Watch the tutorial</span></span>
+## <a name="feedback"></a><span data-ttu-id="eab60-111">フィードバック</span><span class="sxs-lookup"><span data-stu-id="eab60-111">Feedback</span></span>
 
-<span data-ttu-id="8364e-108">このモジュールは、Office 開発 YouTube チャネルで記録されており、利用できます。</span><span class="sxs-lookup"><span data-stu-id="8364e-108">This module has been recorded and is available in the Office Development YouTube channel.</span></span>
-
-<!-- markdownlint-disable MD033 MD034 -->
-<br/>
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/BLmOmv4FSsQ]
-<!-- markdownlint-enable MD033 MD034 -->
-
-## <a name="feedback"></a><span data-ttu-id="8364e-109">フィードバック</span><span class="sxs-lookup"><span data-stu-id="8364e-109">Feedback</span></span>
-
-<span data-ttu-id="8364e-110">このチュートリアルに関するフィードバックは、 [GitHub リポジトリ](https://github.com/microsoftgraph/msgraph-training-android)に記入してください。</span><span class="sxs-lookup"><span data-stu-id="8364e-110">Please provide any feedback on this tutorial in the [GitHub repository](https://github.com/microsoftgraph/msgraph-training-android).</span></span>
+<span data-ttu-id="eab60-112">このチュートリアルに関するフィードバックは [、GitHub リポジトリで提供してください](https://github.com/microsoftgraph/msgraph-training-android)。</span><span class="sxs-lookup"><span data-stu-id="eab60-112">Please provide any feedback on this tutorial in the [GitHub repository](https://github.com/microsoftgraph/msgraph-training-android).</span></span>
